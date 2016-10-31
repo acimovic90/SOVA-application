@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
+using DomainModels;
+using DomainModels.Models;
+using Microsoft.EntityFrameworkCore;
+
+namespace DataService
+{
+    public class SovaContext : DbContext
+    {
+        public DbSet<Post> Posts { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySql("server=wt-220.ruc.dk;database=jakhjo;uid=jakhjo;pwd=ugA7EpaN");
+            base.OnConfiguring(optionsBuilder);
+        }
+    }
+}

@@ -1,18 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DomainModels
+namespace DomainModels.Models
 {
     public class Post
     {
+        [Column("id")]
         public int Id { get; set; }
+        [Column("posttypeid")]
+        public int PostTypeId { get; set; }
+        [Column("creationdate")]
         public DateTime CreationDate { get; set; }
+        [Column("score")]
         public int Score { get; set; }
+        [Column("body")]
         public string Body { get; set; }
+        [Column("closeddate")]
         public DateTime ClosedDate { get; set; }
+        [Column("title")]
         public string Title { get; set; }
+
         public User User { get; set; }
 
         

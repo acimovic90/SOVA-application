@@ -7,11 +7,11 @@ using DomainModels.Models;
 
 namespace DataService
 {
-    public interface IDataService
+    public interface IPostService
     {
         IList<Comment> GetComments();
         IList<Post> GetUsersPosts(int userId, int postTypeId);
-        Post GetSinglePost(int postId, int postTypeId);
+        Post GetPostById(int postId, int postTypeId);
 
 
     }
