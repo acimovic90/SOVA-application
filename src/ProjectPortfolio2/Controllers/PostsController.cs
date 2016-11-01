@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DataService;
+using DomainModels.Models;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,7 +13,7 @@ namespace ProjectPortfolio2.Controllers
     [Route("api/[controller]")]
     public class PostsController : Controller
     {
-        //private readonly IPostService _postService;
+        private readonly IPostService _postService;
 
         // GET: api/values
         [HttpGet]
@@ -23,11 +24,15 @@ namespace ProjectPortfolio2.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string GetPosts(int id)
+        public Post GetPosts(int id)
         {
-            int Posttypeid = 1;
+            int PostTypeId = 1;
 
-            return "value";
+            PostService ps = new PostService();
+
+            var test = ps.GetPostById(id, PostTypeId);
+
+            return test;
         }
 
         // POST api/values

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
-using DomainModels;
 using DomainModels.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataService
 {
@@ -23,8 +23,15 @@ namespace DataService
         {
             using (var db = new SovaContext())
             {
-                return db.Posts.FirstOrDefault(p => p.Id == postId && p.PostTypeId == postTypeId);
+                var post = db.Posts.FromSql("getSinglePost @p0, @p1",
+                    parameters: new[] { postId, postTypeId }).FirstOrDefault();
+
+                return db.Posts.FromSql("getSinglePost @p0, @p1", postId, postTypeId).FirstOrDefault();
+
+
+                //return db.Posts.FromSql("getSinglePost @p0, @p1").FirstOrDefault(p => p.Id == postId && p.PostTypeId == postTypeId);
             }
+
         }
     }
 }
