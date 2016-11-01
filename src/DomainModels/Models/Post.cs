@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DomainModels.Models
 {
-    public class Post
+    public class Post //I fokus lige nu
     {
         [Column("id")]
         public int Id { get; set; }

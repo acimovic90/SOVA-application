@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DataService;
+using System.Net.Http;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,8 +28,10 @@ namespace ProjectPortfolio2.Controllers
         public string GetPosts(int id)
         {
             int Posttypeid = 1;
-
-            return "value";
+            PostService postService = new PostService();
+            var post = postService.GetPostById(id, Posttypeid);
+            if (post == null) return "Not found";
+            return "found";
         }
 
         // POST api/values

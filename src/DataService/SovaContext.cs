@@ -12,11 +12,12 @@ namespace DataService
     public class SovaContext : DbContext
     {
         public DbSet<Post> Posts { get; set; }
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql("server=wt-220.ruc.dk;database=jakhjo;uid=jakhjo;pwd=ugA7EpaN");
             base.OnConfiguring(optionsBuilder);
         }
+
     }
 }
