@@ -3,7 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DomainModels.Models
 {
-    public class Post //I fokus lige nu
+    [Table("posts")]
+    public class Post
     {
         [Column("id")]
         public int Id { get; set; }
@@ -16,12 +17,12 @@ namespace DomainModels.Models
         [Column("body")]
         public string Body { get; set; }
         [Column("closeddate")]
-        public DateTime ClosedDate { get; set; }
+        public DateTime ?ClosedDate { get; set; }
         [Column("title")]
         public string Title { get; set; }
 
         public User User { get; set; }
 
-        
+
     }
 }

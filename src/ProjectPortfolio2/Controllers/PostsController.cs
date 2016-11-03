@@ -14,7 +14,12 @@ namespace ProjectPortfolio2.Controllers
     [Route("api/[controller]")]
     public class PostsController : Controller
     {
-        //private readonly IPostService _postService;
+        private readonly IPostService _postService;
+
+        public PostsController(IPostService postService)
+        {
+            _postService = postService;
+        }
 
         // GET: api/values
         [HttpGet]
@@ -25,13 +30,11 @@ namespace ProjectPortfolio2.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string GetPosts(int id)
+        public IActionResult GetPosts(int id)
         {
-            int Posttypeid = 1;
-            PostService postService = new PostService();
-            var post = postService.GetPostById(id, Posttypeid);
-            if (post == null) return "Not found";
-            return "found";
+            int posttypeid = 1;
+            var data = _postService.GetPostById(id, posttypeid);
+            return Ok(data);
         }
 
         // POST api/values
