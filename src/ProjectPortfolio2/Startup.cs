@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DataService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -38,7 +39,7 @@ namespace ProjectPortfolio2
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddMvc();
-            //services.AddSingleton<IPostService, PostService>();
+            services.AddSingleton<IPostService, PostService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline

@@ -25,7 +25,7 @@ namespace DataService
             using (var db = new SovaContext())
             {
 
-                var post = db.Posts.FirstOrDefault(c => c.Id == postId);
+                var post = db.Posts.FirstOrDefault(c => c.Id == postId && c.PostTypeId == postTypeId);
 
 
                 //var bla = db.Database.ExecuteSqlCommand("getSinglePost @p0, @p1", parameters: new[] { postId, postTypeId});
