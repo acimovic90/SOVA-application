@@ -20,6 +20,7 @@ namespace ProjectPortfolio2
                 .Build();
 
             host.Run();
+
         }
     }
 }

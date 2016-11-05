@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using DomainModels.Models;
+using MySql.Data.MySqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataService
@@ -19,17 +20,19 @@ namespace DataService
             throw new NotImplementedException();
         }
 
-        public Post GetPostById(int postId, int postTypeId)
+        public Post GetPostById(int postId, int postTypeId) //Mangler return
         {
             using (var db = new SovaContext())
             {
-                var post = db.Posts.FromSql("getSinglePost @p0, @p1",
-                    parameters: new[] { postId, postTypeId }).FirstOrDefault();
 
-                return db.Posts.FromSql("getSinglePost @p0, @p1", postId, postTypeId).FirstOrDefault();
+                var post = db.Posts.FirstOrDefault(c => c.Id == postId);
 
 
-                //return db.Posts.FromSql("getSinglePost @p0, @p1").FirstOrDefault(p => p.Id == postId && p.PostTypeId == postTypeId);
+                //var bla = db.Database.ExecuteSqlCommand("getSinglePost @p0, @p1", parameters: new[] { postId, postTypeId});
+                
+                return post;
+
+
             }
 
         }
