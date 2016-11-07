@@ -15,20 +15,25 @@ namespace DataService
             throw new NotImplementedException();
         }
 
-        public IList<Post> GetUsersPosts(int userId, int postTypeId)
+        public IList<Post> GetUsersPosts(int userId)
         {
             throw new NotImplementedException();
         }
 
-        public Post GetPostById(int postId, int postTypeId) //Mangler return
+        public Post GetPostById(int postId) //Mangler return
         {
             using (var db = new SovaContext())
             {
 
-                //var post = db.Posts.FirstOrDefault(c => c.Id == postId && c.PostTypeId == postTypeId);
+                //var test = db.Posts.FirstOrDefault(c => c.Id == postId);
 
-                var result = db.Posts 
-                    .FromSql("call getSinglePost({0},{1})", postId, postTypeId);
+                var result = db.Posts.FromSql("call getSinglePost({0})", postId);
+
+                var userId = result.Select(x => x.UserId).FirstOrDefault();
+
+                db.Users.FirstOrDefault(u => u.Id == userId);
+
+                
 
                 foreach (var post in result)
                 {
