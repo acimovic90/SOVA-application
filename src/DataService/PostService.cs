@@ -27,8 +27,14 @@ namespace DataService
 
                 //var post = db.Posts.FirstOrDefault(c => c.Id == postId && c.PostTypeId == postTypeId);
 
-                var result = db.Set<Post>() 
+                var result = db.Posts 
                     .FromSql("call getSinglePost({0},{1})", postId, postTypeId);
+
+                foreach (var post in result)
+                {
+                    //post.User = db.
+                }
+
 
                 return result.FirstOrDefault();
             }
