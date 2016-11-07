@@ -20,7 +20,7 @@ namespace ProjectPortfolio2.Controllers
         {
             _postService = postService;
         }
-
+    
         // GET: api/values
         [HttpGet]
         public IEnumerable<string> Get()

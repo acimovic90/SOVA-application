@@ -29,7 +29,8 @@ namespace DataService
 
                 var result = db.Set<Post>() 
                     .FromSql("call getSinglePost({0},{1})", postId, postTypeId);
-
+                
+               
                 return result.FirstOrDefault();
             }
 
