@@ -20,6 +20,8 @@ namespace DomainModels.Models
         public DateTime ?ClosedDate { get; set; }
         [Column("title")]
         public string Title { get; set; }
+
+        [Column ("userid")]
         public int UserId { get; set; }
         public User User { get; set; }
 
