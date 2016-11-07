@@ -26,7 +26,7 @@ namespace DataService
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql("server=wt-220.ruc.dk;database=jakhjo;uid=jakhjo;pwd=ugA7EpaN");
-            //optionsBuilder.UseMySql("server=localhost;database=jakhjo;uid=jannik;pwd=password");
+            //optionsBuilder.UseMySql("server=localhost;database=jakhjo;uid=root;pwd=password");
             base.OnConfiguring(optionsBuilder);
         }
 
