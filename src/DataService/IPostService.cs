@@ -9,10 +9,9 @@ namespace DataService
 {
     public interface IPostService
     {
-        IList<Comment> GetComments();
-        IList<Post> GetUsersPosts(int userId);
         Post GetPostById(int postId);
         IList<Post> GetAnswers(int postId);
+        IList<Comment> GetComments(int postId);
 
 
     }

@@ -27,7 +27,15 @@ namespace DomainModels.Models
         [Column("userid")]
         public int UserId { get; set; }
         public User User { get; set; }
+
+
         public List<Post> Answers = new List<Post>();
-        public List<Post> AcceptedAnswer = new List<Post>();
+
+        public Post AcceptedAnswer = null;
+
+        public List<Comment> Comments { get; set; }
+
+
+
     }
 }

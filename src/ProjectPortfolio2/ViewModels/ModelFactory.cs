@@ -14,7 +14,7 @@ namespace ProjectPortfolio2.ViewModels
             {
                 Displayname = user.DisplayName,
                 Age = user.Age.Value,
-                Creationdate = user.CreationDate,
+                //Creationdate = user.CreationDate,
                 Location = user.Location
             };
         }
