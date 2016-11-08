@@ -24,7 +24,7 @@ namespace ProjectPortfolio2.Controllers
         {
             var user = _userService.GetUserById(id);
             if (user == null) return NotFound();
-
+            return Ok(user);
             var viewModel = ModelFactory.Map(user);
 
             return Ok(viewModel);

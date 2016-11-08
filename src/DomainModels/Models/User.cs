@@ -7,6 +7,11 @@ namespace DomainModels.Models
     [Table("users")]
     public class User
     {
+        //public User()
+        //{
+        //    Posts = new List<Post>();
+        //}
+
         [Column("id")]
         public int Id { get; set; }
         [Column("userdisplayname")]
@@ -18,10 +23,10 @@ namespace DomainModels.Models
         [Column("userage")]
         public int ?Age { get; set; }
 
-        [NotMapped]
-        public List<Post> Posts { get; set; }
+        //[NotMapped]
+        public List<Post> Posts = new List<Post>();
 
-        [NotMapped]
-        public List<Post> FavouritePosts { get; set; }
+        //[NotMapped]
+        //public List<Post> FavouritePosts { get; set; }
     }
 }

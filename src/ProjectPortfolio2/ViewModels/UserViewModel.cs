@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DomainModels.Models;
 
 namespace ProjectPortfolio2.ViewModels
 {
@@ -11,5 +12,6 @@ namespace ProjectPortfolio2.ViewModels
         public int Age { get; set; }
         public DateTime Creationdate { get; set; }
         public string Location { get; set; }
+        public List<Post> Posts { get; set; }
     }
 }
