@@ -12,12 +12,12 @@ namespace DomainModels.Models
         [Column("userdisplayname")]
         public string DisplayName { get; set; }
         [Column("usercreationdate")]
-        public DateTime CreationDate { get; set; }
+        public DateTime ?CreationDate { get; set; }
         [Column("userlocation")]
         public string Location { get; set; }
         [Column("userage")]
         public int ?Age { get; set; }
-        public List<Post> Posts { get; set; }
-        public List<Post> FavouritePosts { get; set; }
+        //public List<Post> Posts { get; set; }
+        //public List<Post> FavouritePosts { get; set; }
     }
 }

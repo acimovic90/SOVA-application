@@ -13,15 +13,24 @@ namespace DataService
     {
         public DbSet<Post> Posts { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        ////    modelBuilder.Entity<Post>().ToTable("posts");
-        ////    modelBuilder.Entity<Post>().Property(c => c.Id).HasColumnName("id");
-        ////    modelBuilder.Entity<Post>().Property(c => c.Title).HasColumnName("title");
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.Entity<Comment>()          
+            //    .HasOne(p => p.Post)
+            //    .WithMany(c => c.Comments);
 
-        ////    base.OnModelCreating(modelBuilder);
-        //}
+            //modelBuilder.Entity<Post>()
+            //    .HasMany(c => c.Comments)
+            //    .WithOne(p => p.Post);
+
+            ////    modelBuilder.Entity<Post>().ToTable("posts");
+            ////    modelBuilder.Entity<Post>().Property(c => c.Id).HasColumnName("id");
+            ////    modelBuilder.Entity<Post>().Property(c => c.Title).HasColumnName("title");
+
+            base.OnModelCreating(modelBuilder);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

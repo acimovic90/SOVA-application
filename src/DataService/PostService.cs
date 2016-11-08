@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using DomainModels.Models;
 using MySql.Data.MySqlClient;
@@ -11,16 +12,6 @@ namespace DataService
 {
     public class PostService : IPostService
     {
-        public IList<Comment> GetComments()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<Post> GetUsersPosts(int userId)
-        {
-            throw new NotImplementedException();
-        }
-
         public Post GetPostById(int postId)
         {
             using (var db = new SovaContext())
@@ -30,13 +21,19 @@ namespace DataService
 
                 db.Users.FirstOrDefault(u => u.Id == post.UserId);
 
+
+                //Get comments
+                var comments = GetComments(postId);
+                
+
+                //Get answers
                 var answers = GetAnswers(postId);
 
                 foreach (var answer in answers)
                 {
                     if (answer.Id == post.AcceptedAnswerId)
                     {
-                        post.AcceptedAnswer.Add(answer);
+                        post.AcceptedAnswer = answer; 
                     }
                     else
                     {
@@ -59,6 +56,16 @@ namespace DataService
 
             }
 
+        }
+        public IList<Comment> GetComments(int postId)
+        {
+            using (var db = new SovaContext())
+            {
+                var result = db.Comments.FromSql("call getComments({0})", postId);
+
+                return result.ToList();
+
+            }
         }
     }
 }
