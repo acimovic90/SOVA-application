@@ -16,11 +16,11 @@ namespace DataService
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
-        ////    modelBuilder.Entity<Post>().ToTable("posts");
-        ////    modelBuilder.Entity<Post>().Property(c => c.Id).HasColumnName("id");
-        ////    modelBuilder.Entity<Post>().Property(c => c.Title).HasColumnName("title");
+        //    modelBuilder.Entity<User>().ToTable("users");
+        //    //    modelBuilder.Entity<Post>().Property(c => c.Id).HasColumnName("id");
+        //    //    modelBuilder.Entity<Post>().Property(c => c.Title).HasColumnName("title");
 
-        ////    base.OnModelCreating(modelBuilder);
+        //    //    base.OnModelCreating(modelBuilder);
         //}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

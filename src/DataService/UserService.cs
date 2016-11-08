@@ -10,12 +10,10 @@ namespace DataService
     {
         public User GetUserById(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public IList<User> GetUsers()
-        {
-            throw new NotImplementedException();
+            using (var db = new SovaContext())
+            {
+                return db.Users.FirstOrDefault(u => u.Id == id);
+            }
         }
     }
 }

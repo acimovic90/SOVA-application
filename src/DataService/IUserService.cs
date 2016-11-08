@@ -6,9 +6,8 @@ using DomainModels.Models;
 
 namespace DataService
 {
-    interface IUserService
+    public interface IUserService
     {
-        IList<User> GetUsers();
         User GetUserById(int id);
     }
 }
