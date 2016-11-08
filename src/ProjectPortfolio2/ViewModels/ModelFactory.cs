@@ -13,7 +13,9 @@ namespace ProjectPortfolio2.ViewModels
             return new UserViewModel
             {
                 Displayname = user.DisplayName,
-                Age = user.Age.Value
+                Age = user.Age.Value,
+                Creationdate = user.CreationDate,
+                Location = user.Location
             };
         }
     }
