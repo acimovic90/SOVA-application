@@ -5,6 +5,7 @@ using System.Linq;
 using DomainModels.Models;
 using MySql.Data.MySqlClient;
 using Microsoft.EntityFrameworkCore;
+using Remotion.Linq.Clauses;
 
 namespace DataService
 {
@@ -15,28 +16,47 @@ namespace DataService
             throw new NotImplementedException();
         }
 
-        public IList<Post> GetUsersPosts(int userId, int postTypeId)
+        public IList<Post> GetUsersPosts(int userId)
         {
             throw new NotImplementedException();
         }
 
-        public Post GetPostById(int postId, int postTypeId) //Mangler return
+        public Post GetPostById(int postId)
         {
             using (var db = new SovaContext())
             {
+                Post post = db.Posts
+                    .FromSql("call getSinglePost({0})", postId).FirstOrDefault();
 
-                //var post = db.Posts.FirstOrDefault(c => c.Id == postId && c.PostTypeId == postTypeId);
+                db.Users.FirstOrDefault(u => u.Id == post.UserId);
 
-                var result = db.Posts 
-                    .FromSql("call getSinglePost({0},{1})", postId, postTypeId);
+                var answers = GetAnswers(postId);
 
-                foreach (var post in result)
+                foreach (var answer in answers)
                 {
-                    //post.User = db.
+                    if (answer.Id == post.AcceptedAnswerId)
+                    {
+                        post.AcceptedAnswer.Add(answer);
+                    }
+                    else
+                    {
+                        post.Answers.Add(answer);
+                    }
                 }
 
+                return post;
+            }
 
-                return result.FirstOrDefault();
+        }
+
+        public IList<Post> GetAnswers(int postId)
+        {
+            using (var db = new SovaContext())
+            {
+                var result = db.Posts.FromSql("call getAnswers({0})", postId);
+
+                return result.ToList();
+
             }
 
         }

@@ -31,9 +31,8 @@ namespace ProjectPortfolio2.Controllers
         // GET api/values/5
         [HttpGet("{id}")]
         public IActionResult GetPosts(int id)
-        {
-            int posttypeid = 1;
-            var data = _postService.GetPostById(id, posttypeid);
+        { 
+            var data = _postService.GetPostById(id);
             return Ok(data);
         }
 
