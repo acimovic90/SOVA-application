@@ -40,6 +40,7 @@ namespace ProjectPortfolio2
 
             services.AddMvc();
             services.AddSingleton<IPostService, PostService>();
+            services.AddSingleton<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
