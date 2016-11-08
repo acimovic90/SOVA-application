@@ -5,7 +5,6 @@ using System.Linq;
 using DomainModels.Models;
 using MySql.Data.MySqlClient;
 using Microsoft.EntityFrameworkCore;
-using Remotion.Linq.Clauses;
 
 namespace DataService
 {
@@ -21,42 +20,28 @@ namespace DataService
             throw new NotImplementedException();
         }
 
-        public Post GetPostById(int postId)
+        public Post GetPostById(int postId) //Mangler return
         {
             using (var db = new SovaContext())
             {
-                Post post = db.Posts
-                    .FromSql("call getSinglePost({0})", postId).FirstOrDefault();
 
-                db.Users.FirstOrDefault(u => u.Id == post.UserId);
+                //var test = db.Posts.FirstOrDefault(c => c.Id == postId);
 
-                var answers = GetAnswers(postId);
+                var result = db.Posts.FromSql("call getSinglePost({0})", postId);
 
-                foreach (var answer in answers)
+                var userId = result.Select(x => x.UserId).FirstOrDefault();
+
+                db.Users.FirstOrDefault(u => u.Id == userId);
+
+                
+
+                foreach (var post in result)
                 {
-                    if (answer.Id == post.AcceptedAnswerId)
-                    {
-                        post.AcceptedAnswer.Add(answer);
-                    }
-                    else
-                    {
-                        post.Answers.Add(answer);
-                    }
+                    //post.User = db.
                 }
 
-                return post;
-            }
 
-        }
-
-        public IList<Post> GetAnswers(int postId)
-        {
-            using (var db = new SovaContext())
-            {
-                var result = db.Posts.FromSql("call getAnswers({0})", postId);
-
-                return result.ToList();
-
+                return result.FirstOrDefault();
             }
 
         }
