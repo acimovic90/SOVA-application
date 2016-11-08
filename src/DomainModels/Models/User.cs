@@ -7,12 +7,6 @@ namespace DomainModels.Models
     [Table("users")]
     public class User
     {
-        //public User()
-        //{
-        //    Posts = new List<Post>();
-        //    FavouritePosts = new List<Post>();
-        //}
-
         [Column("id")]
         public int Id { get; set; }
         [Column("userdisplayname")]
