@@ -7,10 +7,10 @@ namespace DomainModels.Models
     [Table("users")]
     public class User
     {
-        //public User()
-        //{
-        //    Posts = new List<Post>();
-        //}
+        public User()
+        {
+            Posts = new List<Post>();
+        }
 
         [Column("id")]
         public int Id { get; set; }
