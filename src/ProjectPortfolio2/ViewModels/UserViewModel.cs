@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DomainModels.Models;
+using ProjectPortfolio2.ViewModels.Partials;
 
 namespace ProjectPortfolio2.ViewModels
 {
@@ -12,6 +13,6 @@ namespace ProjectPortfolio2.ViewModels
         public int Age { get; set; }
         public DateTime ?CreationDate { get; set; }
         public string Location { get; set; }
-        public List<Post> Posts { get; set; }
+        public List<PostListViewModel> Posts { get; set; }
     }
 }
