@@ -23,7 +23,7 @@ namespace DataService
 
 
                 //Get comments
-                var comments = GetComments(postId);
+                //var comments = GetComments(postId);
                 
 
                 //Get answers
@@ -57,15 +57,6 @@ namespace DataService
             }
 
         }
-        public IList<Comment> GetComments(int postId)
-        {
-            using (var db = new SovaContext())
-            {
-                var result = db.Comments.FromSql("call getComments({0})", postId);
-
-                return result.ToList();
-
-            }
-        }
+        
     }
 }

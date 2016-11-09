@@ -11,7 +11,7 @@ namespace DataService
     {
         Post GetPostById(int postId);
         IList<Post> GetAnswers(int postId);
-        IList<Comment> GetComments(int postId);
+        //IList<Comment> GetComments(int postId);
 
 
     }
