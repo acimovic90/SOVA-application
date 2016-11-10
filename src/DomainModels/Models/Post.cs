@@ -8,7 +8,7 @@ namespace DomainModels.Models
     public class Post
     {
         [Column("id")]
-        public int? Id { get; set; }
+        public int? PostId { get; set; }
         [Column("posttypeid")]
         public int PostTypeId { get; set; }
         [Column("acceptedanswerid")]
@@ -32,6 +32,7 @@ namespace DomainModels.Models
         public List<Post> Answers = new List<Post>();
 
         public Post AcceptedAnswer = null;
+
 
         public List<Comment> Comments { get; set; }
 

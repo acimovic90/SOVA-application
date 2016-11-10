@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DataService;
 using System.Net.Http;
+using ProjectPortfolio2.ViewModels;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -32,8 +33,12 @@ namespace ProjectPortfolio2.Controllers
         [HttpGet("{id}")]
         public IActionResult GetPosts(int id)
         { 
-            var data = _postService.GetPostById(id);
-            return Ok(data);
+            var post = _postService.GetPostById(id);
+            if (post == null) return NotFound();
+            var viewModel = PostModelFactory.Map(post);
+
+            //return Ok(viewModel);
+            return Ok(post);
         }
 
         // POST api/values

@@ -9,7 +9,7 @@ namespace DomainModels.Models
         [Column("commentid")]
         public int Id { get; set; }
         [Column("postid")]
-        public int postId { get; set; }
+        public int PostId { get; set; }
         [Column("commentscore")]
         public int Score { get; set; }
         [Column("commenttext")]
@@ -17,7 +17,11 @@ namespace DomainModels.Models
         [Column("commentcreatedate")]
         public DateTime CreateDate { get; set; }
         [Column("userid")]
-        public int userId { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
+
+        //[Column("postid")]
+        //public int PostId { get; set; }
+        //public Post Post { get; set; }
     }
 }

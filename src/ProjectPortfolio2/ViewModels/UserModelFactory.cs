@@ -7,7 +7,7 @@ using ProjectPortfolio2.ViewModels.Partials;
 
 namespace ProjectPortfolio2.ViewModels
 {
-    public class ModelFactory
+    public class UserModelFactory
     {
         public static UserViewModel Map(User user)
         {
@@ -17,7 +17,7 @@ namespace ProjectPortfolio2.ViewModels
             {
                 var tmp = new PostListViewModel
                 {
-                    Id = post.Id,
+                    Id = post.PostId,
                     Title = post.Title
                 };
 
