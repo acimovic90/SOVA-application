@@ -4,12 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using DomainModels.Models;
 using ProjectPortfolio2.ViewModels.Partials;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ProjectPortfolio2.ViewModels
 {
     public class UserModelFactory
     {
-        public static UserViewModel Map(User user)
+        public static UserViewModel Map(User user, IUrlHelper url)
         {
             var posts = new List<PostListViewModel>();
 
@@ -27,7 +28,8 @@ namespace ProjectPortfolio2.ViewModels
 
             return new UserViewModel
             {
-
+                //Url = url.Link(Config.CategoryRoute, new { id = category.Id}),
+                Url = url.Link(Config.UserRoute, new { id = user.Id }),
                 Displayname = user.DisplayName,
                 Age = user.Age.Value,
                 CreationDate = user.CreationDate,

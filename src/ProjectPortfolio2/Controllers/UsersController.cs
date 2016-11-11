@@ -18,13 +18,13 @@ namespace ProjectPortfolio2.Controllers
         {
             _userService = userService;
         }
-
-        [Route("{id}")]
+        
+        [HttpGet("{id}", Name = Config.UserRoute)]
         public IActionResult Get(int id)
         {
             var user = _userService.GetUserById(id);
             if (user == null) return NotFound();
-            var viewModel = UserModelFactory.Map(user);
+            var viewModel = UserModelFactory.Map(user, Url);
 
             return Ok(viewModel);
         }
