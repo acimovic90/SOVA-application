@@ -9,13 +9,14 @@ namespace DataService
 {
     public class CommentService : ICommentService
     {
-        public IList<Comment> GetComments(int postId)
+        public Comment GetComments(int postId)
         {
             using (var db = new SovaContext())
             {
-                var result = db.Comments.FromSql("call getComments({0})", postId);
+                Comment comment = db.Comments
+                    .FromSql("call getComments({0})", postId).FirstOrDefault();
 
-                return result.ToList();
+                return comment;
 
             }
         }

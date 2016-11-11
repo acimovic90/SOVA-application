@@ -18,7 +18,11 @@ namespace DomainModels.Models
         public DateTime CreateDate { get; set; }
         [Column("userid")]
         public int UserId { get; set; }
+
+        //[NotMapped]
         public User User { get; set; }
+
+ 
 
         //[Column("postid")]
         //public int PostId { get; set; }

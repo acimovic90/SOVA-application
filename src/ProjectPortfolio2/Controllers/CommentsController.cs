@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataService;
 using Microsoft.AspNetCore.Mvc;
+using ProjectPortfolio2.ViewModels;
+using ProjectPortfolio2.ViewModels.ModelFactories;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,11 +29,15 @@ namespace ProjectPortfolio2.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public IActionResult GetCommets(int id)
+        public IActionResult Get(int id)
         {
-            var data = _commentService.GetComments(id);
-            return Ok(data);
+            var comment = _commentService.GetComments(id);
+            if (comment == null) return NotFound();
+            var viewModel = CommentModelFactory.Map(comment, Url);
+
+            return Ok(viewModel);
         }
+
 
         // POST api/values
         [HttpPost]

@@ -55,6 +55,7 @@ namespace ProjectPortfolio2
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseMvc();
+
         }
     }
 }
