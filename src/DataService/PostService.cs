@@ -20,11 +20,11 @@ namespace DataService
                     .FromSql("call getSinglePost({0})", postId).FirstOrDefault();
 
                 db.Users.FirstOrDefault(u => u.Id == post.UserId);
-                         
-                db.Comments.Where(c => c.PostId == postId).ToList().FirstOrDefault();
-                
 
-                 
+                db.Comments.Where(c => c.PostId == postId).ToList().FirstOrDefault();
+
+
+
                 //Get comments
                 //post.Comments = GetComments(postId);
 
@@ -35,7 +35,7 @@ namespace DataService
                 foreach (var answer in answers)
                 {
                     if (answer.PostId == post.AcceptedAnswerId)
-                    {                  
+                    {
                         post.AcceptedAnswer = answer;
                     }
                     else
@@ -66,10 +66,45 @@ namespace DataService
             {
                 var result = db.Posts.FromSql("call getAnswers({0})", postId);
 
+                var userIds = new List<int>(result.Select(u => u.UserId));
+                var userList = getListOfUsers(userIds);
+
                 foreach (var post in result)
                 {
-                    
-                    post.Comments = GetComments(Convert.ToInt32(post.PostId));
+                    foreach (var user in userList)
+                    {
+                        try
+                        {
+                            if (user.Id == post.UserId)
+                            {
+                                post.User = user;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            //catch exception if user is not found
+                        }
+                    }
+
+                    var commentList = GetComments(Convert.ToInt32(post.PostId));
+                    var commentUserIds = new List<int>(commentList.Select(u => u.UserId));
+
+                    var userList2 = getListOfUsers(commentUserIds);
+
+                    foreach (var comment in commentList)
+                    {
+                        try
+                        {
+                            //comment.User = db.Users.FirstOrDefault(u => u.Id == userId);
+                            comment.User = userList2.FirstOrDefault(u => u.Id == comment.UserId);
+                        }
+                        catch (Exception)
+                        {
+                            //catch exception if user is not found
+                        }
+                    }
+
+                    post.Comments = commentList;
 
                 }
 
@@ -79,6 +114,20 @@ namespace DataService
             }
 
         }
-        
+
+        public List<User> getListOfUsers(List<int> userIds)
+        {
+            var userList = new List<User>();
+            using (var db = new SovaContext())
+            {
+                foreach (var userId in userIds)
+                {
+                    var user = db.Users.FirstOrDefault(c => c.Id == userId);
+                    userList.Add(user);
+                }
+            }
+            return userList;
+        }
+
     }
 }
