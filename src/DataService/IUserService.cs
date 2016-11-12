@@ -9,6 +9,7 @@ namespace DataService
     public interface IUserService
     {
         User GetUserById(int id);
+        List<Post> GetUsersPosts(int id);
         List<Post> GetUsersFavouritePosts(int id);
     }
 }

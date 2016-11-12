@@ -34,6 +34,18 @@ namespace DataService
             }
         }
 
+        public List<Post> GetUsersPosts(int id)
+        {
+            using (var db = new SovaContext())
+            {
+                var posts = db.Posts
+                    .Where(p => p.UserId == id && p.PostTypeId == 1)
+                    .ToList();
+
+                return posts;
+            }
+        }
+
         public List<Post> GetUsersFavouritePosts(int id)
         {
             using (var db = new SovaContext())
