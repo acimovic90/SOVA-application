@@ -18,7 +18,17 @@ namespace ProjectPortfolio2.Controllers
         {
             _userService = userService;
         }
-        
+
+        [HttpGet(Name = Config.UsersRoute)]
+        public IActionResult Get(int page = 0, int pageSize = Config.DefaultPageSize)
+        {
+            var users = _userService.GetUsers(pageSize);
+            if (users == null) return NotFound();
+            var viewModel = UsersModelFactory.Map(users, Url);
+
+            return Ok(viewModel);
+        }
+
         [HttpGet("{id}", Name = Config.UserRoute)]
         public IActionResult Get(int id)
         {

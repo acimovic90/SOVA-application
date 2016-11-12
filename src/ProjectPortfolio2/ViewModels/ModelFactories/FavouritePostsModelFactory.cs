@@ -22,7 +22,7 @@ namespace ProjectPortfolio2.ViewModels
                 {
                     Id = post.PostId,
                     Title = post.Title,
-                    Url = url.Link(Config.PostRoute, new { id = post.PostId }),
+                    Url = url.Link(Config.PostRoute, new { id = post.PostId })
                 };
 
                 favouritePostsList.Add(tmp);
