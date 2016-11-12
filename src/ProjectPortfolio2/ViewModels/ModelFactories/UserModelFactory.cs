@@ -12,6 +12,7 @@ namespace ProjectPortfolio2.ViewModels
     {
         public static UserViewModel Map(User user, IUrlHelper url)
         {
+            // add users posts as PostListViewModel objects
             var posts = new List<PostListViewModel>();
 
             foreach (var post in user.Posts)
@@ -26,6 +27,20 @@ namespace ProjectPortfolio2.ViewModels
                 posts.Add(tmp);
             }
 
+            // add users favourite posts as PostListViewModel objects
+            var favouritePosts = new List<PostListViewModel>();
+
+            foreach (var post in user.FavouritePosts)
+            {
+                var tmp = new PostListViewModel
+                {
+                    Id = post.PostId,
+                    Title = post.Title,
+                    Url = url.Link(Config.PostRoute, new { id = post.PostId }),
+                };
+
+                favouritePosts.Add(tmp);
+            }
 
             return new UserViewModel
             {
@@ -34,7 +49,8 @@ namespace ProjectPortfolio2.ViewModels
                 Age = user.Age.Value,
                 CreationDate = user.CreationDate,
                 Location = user.Location,
-                Posts = posts
+                Posts = posts,
+                FavouritePosts = favouritePosts
             };
         }
     }

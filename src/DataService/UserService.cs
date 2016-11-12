@@ -23,6 +23,13 @@ namespace DataService
 
                 user.Posts = posts;
 
+                // find users favourite posts
+                var favouritePosts = db.Posts
+                    .FromSql("call getFavouritePosts({0})", id)
+                    .ToList();
+
+                user.FavouritePosts = favouritePosts;
+
                 return user;
             }
         }
