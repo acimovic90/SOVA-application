@@ -8,7 +8,8 @@ namespace DataService
 {
     public interface IUserService
     {
-        List<User> GetUsers(int pageSize);
+        int GetNumberOfUsers();
+        List<User> GetUsers(int page, int pageSize);
         User GetUserById(int id);
         List<Post> GetUsersPosts(int id);
         List<Post> GetUsersFavouritePosts(int id);

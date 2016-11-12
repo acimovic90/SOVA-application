@@ -9,11 +9,21 @@ namespace DataService
 {
     public class UserService : IUserService
     {
-        public List<User> GetUsers(int pageSize)
+        public int GetNumberOfUsers()
         {
             using (var db = new SovaContext())
             {
                 return db.Users
+                    .Count();
+            }
+        }
+
+        public List<User> GetUsers(int page, int pageSize)
+        {
+            using (var db = new SovaContext())
+            {
+                return db.Users
+                    .Skip(page * pageSize)
                     .Take(pageSize)
                     .ToList();
             }
