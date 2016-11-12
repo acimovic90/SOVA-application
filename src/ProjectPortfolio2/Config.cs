@@ -8,6 +8,7 @@ namespace ProjectPortfolio2
     public class Config
     {
         public const string UserRoute = "UserRoute";
+        public const string PostRoute = "PostRoute";
         public const string CommentRoute = "CommentRoute";
     }
 }

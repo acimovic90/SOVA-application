@@ -9,5 +9,6 @@ namespace ProjectPortfolio2.ViewModels.Partials
     {
         public int ?Id { get; set; }
         public string Title { get; set; }
+        public string Url { get; set; }
     }
 }

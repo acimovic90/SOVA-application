@@ -19,7 +19,8 @@ namespace ProjectPortfolio2.ViewModels
                 var tmp = new PostListViewModel
                 {
                     Id = post.PostId,
-                    Title = post.Title
+                    Title = post.Title,
+                    Url = url.Link(Config.PostRoute, new { id = post.PostId }),
                 };
 
                 posts.Add(tmp);
@@ -28,7 +29,6 @@ namespace ProjectPortfolio2.ViewModels
 
             return new UserViewModel
             {
-                //Url = url.Link(Config.CategoryRoute, new { id = category.Id}),
                 Url = url.Link(Config.UserRoute, new { id = user.Id }),
                 Displayname = user.DisplayName,
                 Age = user.Age.Value,
