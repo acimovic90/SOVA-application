@@ -33,5 +33,17 @@ namespace DataService
                 return user;
             }
         }
+
+        public List<Post> GetUsersFavouritePosts(int id)
+        {
+            using (var db = new SovaContext())
+            {
+                var favouritePosts = db.Posts
+                    .FromSql("call getFavouritePosts({0})", id)
+                    .ToList();
+
+                return favouritePosts;
+            }
+        }
     }
 }

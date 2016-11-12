@@ -28,5 +28,15 @@ namespace ProjectPortfolio2.Controllers
 
             return Ok(viewModel);
         }
+
+        [HttpGet("{id}/favouriteposts", Name = Config.UserFavouritePostsRoute)]
+        public IActionResult GetFavouritePosts(int id)
+        {
+            var favouritePosts = _userService.GetUsersFavouritePosts(id);
+            if (favouritePosts == null) return NotFound();
+            var viewModel = FavouritePostsModelFactory.Map(favouritePosts, Url);
+
+            return Ok(viewModel);
+        }
     }
 }
