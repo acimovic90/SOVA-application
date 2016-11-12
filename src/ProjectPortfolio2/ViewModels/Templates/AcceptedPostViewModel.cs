@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 
 namespace ProjectPortfolio2.ViewModels.Templates
 {
-    public class CommentViewModel
+    public class AcceptedPostViewModel
     {
-        public string Url { get; set; }
+        public DateTime CreationDate { get; set; }
         public int Score { get; set; }
-        public string Text { get; set; }
-        public DateTime? CreateDate { get; set; }
+        public string Body { get; set; }
+        public string Title { get; set; }
         public UserPostViewModel User { get; set; }
-        }
+        public List<CommentViewModel> Comments { get; set; }
+    }
 }

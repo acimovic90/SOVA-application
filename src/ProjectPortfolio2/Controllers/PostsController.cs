@@ -37,8 +37,8 @@ namespace ProjectPortfolio2.Controllers
             if (post == null) return NotFound();
             var viewModel = PostModelFactory.Map(post);
 
-            //return Ok(viewModel);
-            return Ok(post);
+            return Ok(viewModel);
+            //return Ok(post);
         }
 
         // POST api/values
