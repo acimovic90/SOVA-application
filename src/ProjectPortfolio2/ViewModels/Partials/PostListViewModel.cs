@@ -15,5 +15,6 @@ namespace ProjectPortfolio2.ViewModels.Partials
         public int Score { get; set; }
         public UserPostViewModel User { get; set; }
         public List<CommentViewModel> Comment { get; set; }
+        public string Url { get; set; }
     }
 }

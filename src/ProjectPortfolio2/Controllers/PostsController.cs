@@ -30,7 +30,7 @@ namespace ProjectPortfolio2.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = Config.PostRoute)]
         public IActionResult GetPosts(int id)
         { 
             var post = _postService.GetPostById(id);
