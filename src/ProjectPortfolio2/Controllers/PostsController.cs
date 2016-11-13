@@ -13,7 +13,7 @@ using ProjectPortfolio2.ViewModels;
 namespace ProjectPortfolio2.Controllers
 {
     [Route("api/[controller]")]
-    public class PostsController : Controller
+    public class PostsController : BaseController
     {
         private readonly IPostService _postService;
 
@@ -30,15 +30,15 @@ namespace ProjectPortfolio2.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = Config.PostRoute)]
         public IActionResult GetPosts(int id)
         { 
             var post = _postService.GetPostById(id);
             if (post == null) return NotFound();
             var viewModel = PostModelFactory.Map(post);
 
-            //return Ok(viewModel);
-            return Ok(post);
+            return Ok(viewModel);
+            //return Ok(post);
         }
 
         // POST api/values

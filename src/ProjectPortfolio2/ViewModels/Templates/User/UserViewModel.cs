@@ -11,9 +11,10 @@ namespace ProjectPortfolio2.ViewModels
     {
         public string Url { get; set; }
         public string Displayname { get; set; }
-        public int Age { get; set; }
+        public int ?Age { get; set; }
         public DateTime ?CreationDate { get; set; }
         public string Location { get; set; }
         public List<PostListViewModel> Posts { get; set; }
+        public List<PostListViewModel> FavouritePosts { get; set; }
     }
 }

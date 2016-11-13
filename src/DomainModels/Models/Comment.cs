@@ -21,11 +21,5 @@ namespace DomainModels.Models
 
         //[NotMapped]
         public User User { get; set; }
-
- 
-
-        //[Column("postid")]
-        //public int PostId { get; set; }
-        //public Post Post { get; set; }
     }
 }
