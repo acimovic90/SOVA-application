@@ -28,6 +28,8 @@ namespace ProjectPortfolio2.ViewModels
         public AcceptedPostViewModel AcceptedAnswer = null;
 
         public List<CommentViewModel> Comments { get; set; }
+
+        public List<Tag> Tags { get; set; }
     }
 
 }

@@ -23,15 +23,9 @@ namespace DataService
 
                 db.Comments.Where(c => c.PostId == postId).ToList().FirstOrDefault();
 
-
-
-                //Get comments
-                //post.Comments = GetComments(postId);
-
-
                 //Get answers
                 var answers = GetAnswers(postId);
-
+                //Sort answer by answer and accepted answer
                 foreach (var answer in answers)
                 {
                     if (answer.PostId == post.AcceptedAnswerId)
@@ -43,6 +37,8 @@ namespace DataService
                         post.Answers.Add(answer);
                     }
                 }
+            
+                post.TagsList = (List<Tag>) GetTags(postId);
 
                 return post;
             }
@@ -105,11 +101,27 @@ namespace DataService
                     }
 
                     post.Comments = commentList;
-
                 }
 
 
                 return result.ToList();
+
+            }
+
+        }
+
+        public IList<Tag> GetTags(int postId)
+        {
+            using (var db = new SovaContext())
+            {
+                var result = db.Tags.FromSql("call getPostTags({0})", postId);
+
+                var tagList = new List<Tag>();
+                foreach (var tag in result)
+                {
+                    tagList.Add(tag);
+                }
+                return tagList;
 
             }
 

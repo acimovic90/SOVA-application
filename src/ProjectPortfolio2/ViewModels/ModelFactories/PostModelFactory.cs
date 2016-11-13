@@ -30,7 +30,8 @@ namespace ProjectPortfolio2.ViewModels
                     CreationDate = post.User.CreationDate
                 },
                 AcceptedAnswer = getAcceptedAnswerView(post),
-                Answers = getListOfAnswerView(post)
+                Answers = getListOfAnswerView(post),
+                Tags = post.TagsList
             };
         }
 

@@ -33,10 +33,10 @@ namespace DomainModels.Models
 
         public Post AcceptedAnswer = null;
 
-
+  
         public List<Comment> Comments { get; set; }
 
-
+        public List<Tag> TagsList = new List<Tag>();
 
     }
 }
