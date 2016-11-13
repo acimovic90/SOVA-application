@@ -15,7 +15,6 @@ namespace DataService
             {
                 Comment comment = db.Comments
                     .FromSql("call getComments({0})", postId).FirstOrDefault();
-
                 return comment;
 
             }

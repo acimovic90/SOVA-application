@@ -28,7 +28,7 @@ namespace ProjectPortfolio2.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = Config.CommentRoute)]
         public IActionResult Get(int id)
         {
             var comment = _commentService.GetComments(id);
