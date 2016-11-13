@@ -12,7 +12,7 @@ using ProjectPortfolio2.ViewModels.ModelFactories;
 namespace ProjectPortfolio2.Controllers
 {
     [Route("api/[controller]")]
-    public class CommentsController : Controller
+    public class CommentsController : BaseController
     {
         private readonly ICommentService _commentService;
 

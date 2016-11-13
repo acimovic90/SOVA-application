@@ -10,7 +10,7 @@ using ProjectPortfolio2.ViewModels;
 namespace ProjectPortfolio2.Controllers
 {
     [Route("api/users")]
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
         private readonly IUserService _userService;
 
@@ -32,8 +32,8 @@ namespace ProjectPortfolio2.Controllers
             {
                 users = users,
                 total = total,
-                prev = GetPrevUrl(Url, page, pageSize),
-                next = GetNextUrl(Url, page, pageSize, total)
+                prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
+                next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
             };
 
             return Ok(result);
@@ -67,20 +67,6 @@ namespace ProjectPortfolio2.Controllers
             var viewModel = FavouritePostsModelFactory.Map(favouritePosts, Url);
 
             return Ok(viewModel);
-        }
-
-        private string GetPrevUrl(IUrlHelper url, int page, int pageSize)
-        {
-            if (page == 0) return null;
-
-            return url.Link(Config.UsersRoute, new { page = page - 1, pageSize });
-        }
-
-        private string GetNextUrl(IUrlHelper url, int page, int pageSize, int total)
-        {
-            if (total - (page * pageSize + pageSize) <= 0) return null;
-
-            return url.Link(Config.UsersRoute, new { page = page + 1, pageSize });
         }
     }
 }

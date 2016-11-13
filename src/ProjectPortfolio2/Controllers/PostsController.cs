@@ -13,7 +13,7 @@ using ProjectPortfolio2.ViewModels;
 namespace ProjectPortfolio2.Controllers
 {
     [Route("api/[controller]")]
-    public class PostsController : Controller
+    public class PostsController : BaseController
     {
         private readonly IPostService _postService;
 
