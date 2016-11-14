@@ -166,7 +166,9 @@ namespace DataService
         }
         public IList<Post> GetRelatedPosts(int postId)
         {
-            //TODO Aleksandar
+            //TODO Aleksandar return i samme dataservice
+
+
 
             throw new NotImplementedException();
         }

@@ -11,19 +11,31 @@ namespace ProjectPortfolio2.ViewModels.ModelFactories
 {
     public class CommentModelFactory
     {
-        public static CommentViewModel Map(Comment comment, IUrlHelper url)
+        public static List<CommentViewModel> Map(List<Comment> comments, IUrlHelper url)
         {
+            var commentsList = new List<CommentViewModel>(); //
+                                                             //var commentsViewModel = new CommentViewModel();
 
-            return new CommentViewModel
+            foreach (var comment in comments)
             {
-                //Url = url.Link(Config.CategoryRoute, new { id = category.Id}),
-                Url = url.Link(Config.CommentRoute, new { id = comment.Id }),
-                Score = comment.Score,
-                Text = comment.Text,
-                CreateDate = comment.CreateDate
-              
+
+                var commentsViewModel = new CommentViewModel
+                {
+                    Url = url.Link(Config.PostRoute, new { id = comment.Id }),
+                    Text = comment.Text,
+                    CreateDate = comment.CreateDate
+                };
+                //Text = comment.Text,
+                //CreateDate = comment.CreateDate
+                commentsList.Add(commentsViewModel);
             };
+            //        Text = comment.Text,
+            //        CreateDate = comment.CreateDate,
+            //        Url = url.Link(Config.PostRoute, new { id = comment.Id })
+            return commentsList;
         }
     }
 }
+    
+
 
