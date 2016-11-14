@@ -73,6 +73,7 @@ namespace ProjectPortfolio2.Controllers
         public IActionResult Post([FromBody] UserViewModel model)
         {
             var user = UserModelFactory.Map(model);
+            user.CreationDate = DateTime.Now;
             _userService.AddUser(user);
             return Ok(model);
         }

@@ -59,7 +59,8 @@ namespace ProjectPortfolio2.ViewModels
             return new User
             {
                 DisplayName = model.Displayname,
-                Age = model.Age
+                Age = model.Age,
+                Location = model.Location
             };
         }
     }
