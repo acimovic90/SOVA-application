@@ -38,7 +38,7 @@ namespace DomainModels.Models
 
         public List<Tag> TagsList = new List<Tag>();
 
-        public List<Post> RelatedPosts { get; set; }
+        public List<Post> RelatedPosts = new List<Post>();
 
     }
 }

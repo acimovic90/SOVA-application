@@ -83,7 +83,7 @@ namespace DataService
                         }
                         catch (Exception)
                         {
-                            //catch exception if user is not found
+                            //catch and skip exception if user is not found
                         }
                     }
 
