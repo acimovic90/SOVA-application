@@ -59,6 +59,8 @@ namespace DataService
             }
         }
 
+        
+
         public IList<Post> GetAnswers(int postId)
         {
             using (var db = new SovaContext())
@@ -162,6 +164,11 @@ namespace DataService
             }
             return userList;
         }
+        public IList<Post> GetRelatedPosts(int postId)
+        {
+            //TODO Aleksandar
 
+            throw new NotImplementedException();
+        }
     }
 }
