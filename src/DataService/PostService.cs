@@ -12,6 +12,8 @@ namespace DataService
 {
     public class PostService : IPostService
     {
+
+
         public Post GetPostById(int postId)
         {
             using (var db = new SovaContext())
@@ -37,15 +39,16 @@ namespace DataService
                         post.Answers.Add(answer);
                     }
                 }
-            
-                post.TagsList = (List<Tag>) GetTags(postId);
+
+                post.TagsList = (List<Tag>)GetTags(postId);
 
                 return post;
             }
 
         }
 
-        private List<Comment> GetComments(int postId)
+
+        public IList<Comment> GetComments(int postId)
         {
             using (var db = new SovaContext())
             {
@@ -63,7 +66,7 @@ namespace DataService
                 var result = db.Posts.FromSql("call getAnswers({0})", postId);
 
                 var userIds = new List<int>(result.Select(u => u.UserId));
-                var userList = getListOfUsers(userIds);
+                var userList = GetListOfUsers(userIds);
 
                 foreach (var post in result)
                 {
@@ -85,7 +88,7 @@ namespace DataService
                     var commentList = GetComments(Convert.ToInt32(post.PostId));
                     var commentUserIds = new List<int>(commentList.Select(u => u.UserId));
 
-                    var userList2 = getListOfUsers(commentUserIds);
+                    var userList2 = GetListOfUsers(commentUserIds);
 
                     foreach (var comment in commentList)
                     {
@@ -100,7 +103,7 @@ namespace DataService
                         }
                     }
 
-                    post.Comments = commentList;
+                    post.Comments = (List<Comment>)commentList;
                 }
 
 
@@ -109,6 +112,8 @@ namespace DataService
             }
 
         }
+
+
 
         public IList<Tag> GetTags(int postId)
         {
@@ -126,8 +131,25 @@ namespace DataService
             }
 
         }
+        public int GetNumberOfPosts()
+        {
+            using (var db = new SovaContext())
+            {
 
-        public List<User> getListOfUsers(List<int> userIds)
+                var postCount = (from p in db.Posts
+                    where p.PostTypeId == 1
+                    select p).Count();
+
+
+                return postCount;
+            }
+        }
+        public IList<Post> GetPosts(int page, int pageSize)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IList<User> GetListOfUsers(List<int> userIds)
         {
             var userList = new List<User>();
             using (var db = new SovaContext())

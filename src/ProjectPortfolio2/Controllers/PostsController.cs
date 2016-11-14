@@ -22,11 +22,25 @@ namespace ProjectPortfolio2.Controllers
             _postService = postService;
         }
     
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        // GET: api/posts
+        [HttpGet(Name = Config.UsersRoute)]
+        public IActionResult Get(int page = 0, int pageSize = Config.DefaultPageSize)
         {
-            return new string[] { "value1", "value2" };
+            //var users = _postService.GetPosts(page, pageSize);
+            //if (users == null) return NotFound();
+            //var viewModel = UsersModelFactory.Map(users, Url);
+
+            var total = _postService.GetNumberOfPosts();
+
+            //var result = new
+            //{
+            //    users = users,
+            //    total = total,
+            //    prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
+            //    next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
+            //};
+
+            return Ok(total);
         }
 
         // GET api/values/5
