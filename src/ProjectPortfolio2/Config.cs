@@ -13,6 +13,7 @@ namespace ProjectPortfolio2
         public const string UserPostsRoute = "UserPostsRoute";
         public const string UserFavouritePostsRoute = "UserFavouritePostsRoute";
         public const string PostRoute = "PostRoute";
+        public const string PostsRoute = "PostsRoute";
         public const string CommentRoute = "CommentRoute";
     }
 }

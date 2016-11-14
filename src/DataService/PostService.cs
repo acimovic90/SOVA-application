@@ -146,9 +146,15 @@ namespace DataService
                 return postCount;
             }
         }
-        public IList<Post> GetPosts(int page, int pageSize)
+        public List<Post> GetPosts(int page, int pageSize)
         {
-            throw new NotImplementedException();
+            using (var db = new SovaContext())
+            {
+                return db.Posts
+                    .Skip(page * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+            }
         }
 
         public IList<User> GetListOfUsers(List<int> userIds)

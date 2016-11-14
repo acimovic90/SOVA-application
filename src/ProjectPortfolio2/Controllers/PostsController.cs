@@ -21,27 +21,27 @@ namespace ProjectPortfolio2.Controllers
         {
             _postService = postService;
         }
-    
-        // GET: api/posts
-        //[HttpGet(Name = Config.UsersRoute)]
-        //public IActionResult Get(int page = 0, int pageSize = Config.DefaultPageSize)
-        //{
-        //    //var users = _postService.GetPosts(page, pageSize);
-        //    //if (users == null) return NotFound();
-        //    //var viewModel = UsersModelFactory.Map(users, Url);
 
-        //    var total = _postService.GetNumberOfPosts();
+        // GET: api/values
+        [HttpGet(Name = Config.PostsRoute)]
+        public IActionResult Get(int page = 0, int pageSize = Config.DefaultPageSize)
+        {
+            var posts = _postService.GetPosts(page, pageSize);
+            if (posts == null) return NotFound();
+            var viewModel = PostsModelFactory.Map(posts, Url);
 
-        //    //var result = new
-        //    //{
-        //    //    users = users,
-        //    //    total = total,
-        //    //    prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
-        //    //    next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
-        //    //};
+            var total = _postService.GetNumberOfPosts();
 
-        //    return Ok(total);
-        //}
+            var result = new
+            {
+                posts = viewModel.Posts,
+                total = total,
+                prev = GetPrevUrl(Url, Config.PostsRoute, page, pageSize),
+                next = GetNextUrl(Url, Config.PostsRoute, page, pageSize, total)
+            };
+
+            return Ok(result);
+        }
 
         // GET api/values/5
         [HttpGet("{id}", Name = Config.PostRoute)]

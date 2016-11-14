@@ -14,7 +14,6 @@ namespace ProjectPortfolio2.ViewModels
         public static PostsViewModel Map(List<Post> posts, IUrlHelper url)
         {
             var postsList = new List<PostListViewModel>();
-            var postsViewModel = new PostsViewModel();
 
             foreach (var post in posts)
             {
@@ -27,6 +26,8 @@ namespace ProjectPortfolio2.ViewModels
 
                 postsList.Add(tmp);
             }
+            var postsViewModel = new PostsViewModel();
+
 
             postsViewModel.Posts = postsList;
 
