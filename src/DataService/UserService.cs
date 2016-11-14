@@ -82,7 +82,7 @@ namespace DataService
         {
             using (var db = new SovaContext())
             {
-                db.Add(user);
+                db.Users.Add(user);
                 db.SaveChanges();
             }
         }

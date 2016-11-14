@@ -21,6 +21,8 @@ namespace ProjectPortfolio2.ViewModels
                 {
                     Id = user.Id,
                     Displayname = user.DisplayName,
+                    Location = user.Location,
+                    Age = user.Age,
                     Url = url.Link(Config.UserRoute, new { id = user.Id })
                 };
 
