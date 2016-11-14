@@ -30,7 +30,7 @@ namespace ProjectPortfolio2.Controllers
 
             var result = new
             {
-                users = users,
+                users = viewModel,
                 total = total,
                 prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
                 next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
@@ -67,6 +67,15 @@ namespace ProjectPortfolio2.Controllers
             var viewModel = FavouritePostsModelFactory.Map(favouritePosts, Url);
 
             return Ok(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] UserViewModel model)
+        {
+            var user = UserModelFactory.Map(model);
+            user.CreationDate = DateTime.Now;
+            _userService.AddUser(user);
+            return Ok(UserModelFactory.Map(user, Url));
         }
     }
 }

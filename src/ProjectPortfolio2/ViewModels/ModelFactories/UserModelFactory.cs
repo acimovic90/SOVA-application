@@ -53,5 +53,15 @@ namespace ProjectPortfolio2.ViewModels
                 FavouritePosts = favouritePosts
             };
         }
+
+        public static User Map(UserViewModel model)
+        {
+            return new User
+            {
+                DisplayName = model.Displayname,
+                Age = model.Age,
+                Location = model.Location
+            };
+        }
     }
 }
