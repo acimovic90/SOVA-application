@@ -8,7 +8,7 @@ namespace DataService
 {
     public interface ICommentService
     {
-        //IList<Comment> GetComments(int postId);
+        //IList<Comment> GetUser(List<int> userid);
         Comment GetComments(int postid);
     }
 }
