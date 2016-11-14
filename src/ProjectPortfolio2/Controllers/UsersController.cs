@@ -30,7 +30,7 @@ namespace ProjectPortfolio2.Controllers
 
             var result = new
             {
-                users = users,
+                users = viewModel,
                 total = total,
                 prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
                 next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
@@ -75,7 +75,7 @@ namespace ProjectPortfolio2.Controllers
             var user = UserModelFactory.Map(model);
             user.CreationDate = DateTime.Now;
             _userService.AddUser(user);
-            return Ok(model);
+            return Ok(UserModelFactory.Map(user, Url));
         }
     }
 }
