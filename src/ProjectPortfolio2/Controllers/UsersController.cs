@@ -68,5 +68,13 @@ namespace ProjectPortfolio2.Controllers
 
             return Ok(viewModel);
         }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] UserViewModel model)
+        {
+            var user = UserModelFactory.Map(model);
+            _userService.AddUser(user);
+            return Ok(model);
+        }
     }
 }

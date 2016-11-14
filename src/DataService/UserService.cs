@@ -77,5 +77,14 @@ namespace DataService
                 return favouritePosts;
             }
         }
+
+        public void AddUser(User user)
+        {
+            using (var db = new SovaContext())
+            {
+                db.Users.Add(user);
+                db.SaveChanges();
+            }
+        }
     }
 }
