@@ -150,9 +150,10 @@ namespace DataService
         {
             using (var db = new SovaContext())
             {
-                return db.Posts
+                return db.Posts 
+                    .Where(x=> x.PostTypeId == 1)                 
                     .Skip(page * pageSize)
-                    .Take(pageSize)
+                    .Take(pageSize)                   
                     .ToList();
             }
         }
