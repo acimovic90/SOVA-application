@@ -15,9 +15,26 @@ namespace DataService
             {
                 Comment comment = db.Comments
                     .FromSql("call getComments({0})", postId).FirstOrDefault();
+                //return comment;
+                db.Users.FirstOrDefault(u => u.Id == comment.UserId);
+                var user = GetUserById(comment.UserId);
+                comment.User = user;
                 return comment;
-
             }
         }
+
+        public User GetUserById(int id)
+        {
+            using (var db = new SovaContext())
+            {
+                User user = db.Users
+                    .FromSql("call getUserById({0})", id).FirstOrDefault();
+
+                // find users question posts
+
+                return user;
+            }
+        }
+
     }
 }
