@@ -41,6 +41,7 @@ namespace DataService
                 }
 
                 post.TagsList = (List<Tag>)GetTags(postId);
+                post.RelatedPostsLists = (List<RelatedPost>)GetRelatedPosts(postId);
 
                 return post;
             }
@@ -171,13 +172,21 @@ namespace DataService
             }
             return userList;
         }
-        public IList<Post> GetRelatedPosts(int postId)
+        public IList<RelatedPost> GetRelatedPosts(int postId)
         {
-            //TODO Aleksandar return i samme dataservice
+            using (var db = new SovaContext())
+            {
+                var result = db.RelatedPosts.FromSql("call getRelatedPosts({0})", postId);
+
+                var relatedPostList = new List<RelatedPost>();
+                foreach (var post in result)
+                {
+                    relatedPostList.Add(post);
+                }
+                return relatedPostList;
 
 
-
-            throw new NotImplementedException();
+            }
         }
     }
 }

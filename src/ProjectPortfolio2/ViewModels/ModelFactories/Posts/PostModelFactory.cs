@@ -28,7 +28,8 @@ namespace ProjectPortfolio2.ViewModels
                 },
                 AcceptedAnswer = getAcceptedAnswerView(post),
                 Answers = getListOfAnswerView(post),
-                Tags = post.TagsList
+                Tags = post.TagsList,
+                RelatedPosts = post.RelatedPostsLists
             };
         }
 

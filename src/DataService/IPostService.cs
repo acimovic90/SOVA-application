@@ -16,7 +16,7 @@ namespace DataService
         IList<Tag> GetTags(int postId);
         IList<User> GetListOfUsers(List<int> userIds);
         IList<Comment> GetComments(int postId);
-        IList<Post> GetRelatedPosts(int postId);
+        IList<RelatedPost> GetRelatedPosts(int postId);
 
     }
 }
