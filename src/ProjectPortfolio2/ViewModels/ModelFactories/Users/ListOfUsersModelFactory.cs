@@ -9,9 +9,9 @@ using ProjectPortfolio2.ViewModels.Templates.User;
 
 namespace ProjectPortfolio2.ViewModels
 {
-    public class UsersModelFactory
+    public class ListOfUsersModelFactory
     {
-        public static UsersViewModel Map(List<User> users, IUrlHelper url)
+        public static ListOfUsersViewModel Map(List<User> users, IUrlHelper url)
         {
             var usersList = new List<UserListViewModel>();
 
@@ -29,7 +29,7 @@ namespace ProjectPortfolio2.ViewModels
                 usersList.Add(tmp);
             }
 
-            return new UsersViewModel
+            return new ListOfUsersViewModel
             {
                 Users = usersList
             };

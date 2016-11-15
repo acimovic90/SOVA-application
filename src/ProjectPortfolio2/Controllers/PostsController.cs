@@ -28,7 +28,7 @@ namespace ProjectPortfolio2.Controllers
         {
             var posts = _postService.GetPosts(page, pageSize);
             if (posts == null) return NotFound();
-            var viewModel = PostsModelFactory.Map(posts, Url);
+            var viewModel = ListOfPostsModelFactory.Map(posts, Url);
 
             var total = _postService.GetNumberOfPosts();
 

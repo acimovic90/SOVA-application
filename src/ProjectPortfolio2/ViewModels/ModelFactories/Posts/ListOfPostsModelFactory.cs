@@ -10,14 +10,14 @@ using ProjectPortfolio2.ViewModels.Templates;
 
 namespace ProjectPortfolio2.ViewModels
 {
-    public class PostsModelFactory
+    public class ListOfPostsModelFactory
     {
-        public static PostsViewModel Map(List<Post> posts, IUrlHelper url)
+        public static ListOfPostsViewModel Map(List<Post> posts, IUrlHelper url)
         {
             IPostService _uPostService = new PostService();
 
             var postsList = new List<PostListViewModel>(); //
-            var postsViewModel = new PostsViewModel();
+            var postsViewModel = new ListOfPostsViewModel();
             
             foreach (var post in posts)
             {

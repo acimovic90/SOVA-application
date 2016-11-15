@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ProjectPortfolio2.ViewModels.Templates
+namespace ProjectPortfolio2.ViewModels.Templates.User
 {
-    public class PostsViewModel
+    public class ListOfUsersViewModel
     {
-        public List<PostListViewModel> Posts { get; set; }
+        public List<UserListViewModel> Users { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace ProjectPortfolio2.Controllers
         {
             var users = _userService.GetUsers(page, pageSize);
             if (users == null) return NotFound();
-            var viewModel = UsersModelFactory.Map(users, Url);
+            var viewModel = ListOfUsersModelFactory.Map(users, Url);
 
             var total = _userService.GetNumberOfUsers();
 
@@ -54,7 +54,7 @@ namespace ProjectPortfolio2.Controllers
         {
             var posts = _userService.GetUsersPosts(id);
             if (posts == null) return NotFound();
-            var viewModel = PostsModelFactory.Map(posts, Url);
+            var viewModel = ListOfPostsModelFactory.Map(posts, Url);
 
             return Ok(viewModel);
         }
@@ -64,7 +64,7 @@ namespace ProjectPortfolio2.Controllers
         {
             var favouritePosts = _userService.GetUsersFavouritePosts(id);
             if (favouritePosts == null) return NotFound();
-            var viewModel = FavouritePostsModelFactory.Map(favouritePosts, Url);
+            var viewModel = ListOfPostsModelFactory.Map(favouritePosts, Url);
 
             return Ok(viewModel);
         }

@@ -12,9 +12,6 @@ namespace ProjectPortfolio2.ViewModels
     {
         public static PostViewModel Map(Post post)
         {
-
-
-
             return new PostViewModel
             {
                 PostId = post.PostId,
@@ -119,10 +116,8 @@ namespace ProjectPortfolio2.ViewModels
             {
                 //catch exception and skip if user doesn't exist
             }
+
             return acceptedAnswer;
-
-
-
         }
     }
 }
