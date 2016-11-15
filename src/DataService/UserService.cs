@@ -86,5 +86,39 @@ namespace DataService
                 db.SaveChanges();
             }
         }
+
+        public bool UpdateUser(User user)
+        {
+            using (var db = new SovaContext())
+            {
+                try
+                {
+                    db.Attach(user);
+                    db.Entry(user).State = EntityState.Modified;
+                    return db.SaveChanges() > 0;
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool DeleteUser(int id)
+        {
+            using (var db = new SovaContext())
+            {
+                var user = db.Users.FirstOrDefault(u => u.Id == id);
+
+                if(user == null)
+                {
+                    return false;
+                }
+
+                db.Users.Remove(user);
+
+                return db.SaveChanges() > 0;
+            }
+        }
     }
 }
