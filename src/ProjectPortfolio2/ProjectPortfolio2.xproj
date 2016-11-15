@@ -16,5 +16,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ApplicationInsightsResourceId>/subscriptions/fc456517-dcca-4e01-b99f-ca1f72da5b1c/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/ProjectPortfolio2</ApplicationInsightsResourceId>
   </PropertyGroup>
+  <ItemGroup>
+    <Service Include="{82a7f48d-3b50-4b1e-b82e-3ada8210c358}" />
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\DotNet.Web\Microsoft.DotNet.Web.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>
