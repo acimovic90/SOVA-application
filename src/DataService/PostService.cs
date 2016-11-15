@@ -147,7 +147,7 @@ namespace DataService
                 return postCount;
             }
         }
-        public List<Post> GetPosts(int page, int pageSize)
+        public IList<Post> GetPosts(int page, int pageSize)
         {
             using (var db = new SovaContext())
             {

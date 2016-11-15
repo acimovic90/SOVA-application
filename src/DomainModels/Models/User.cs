@@ -28,5 +28,7 @@ namespace DomainModels.Models
 
         [NotMapped]
         public List<Post> FavouritePosts { get; set; }
+
+        
     }
 }

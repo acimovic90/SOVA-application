@@ -29,7 +29,7 @@ namespace ProjectPortfolio2.Controllers
         {
             var posts = _postService.GetPosts(page, pageSize);
             if (posts == null) return NotFound();
-            var viewModel = ListOfPostsModelFactory.Map(posts, Url);
+            var viewModel = ListOfPostsModelFactory.Map(posts.ToList(), Url);
 
             var total = _postService.GetNumberOfPosts();
 
@@ -50,7 +50,7 @@ namespace ProjectPortfolio2.Controllers
         { 
             var post = _postService.GetPostById(id);
             if (post == null) return NotFound();
-            var viewModel = PostModelFactory.Map(post);
+            var viewModel = PostModelFactory.Map(post, Url);
 
             return Ok(viewModel);
             //return Ok(post);

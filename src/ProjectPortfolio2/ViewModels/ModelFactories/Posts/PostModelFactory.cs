@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DomainModels.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 using ProjectPortfolio2.ViewModels.Partials;
 using ProjectPortfolio2.ViewModels.Templates;
 
@@ -10,8 +13,9 @@ namespace ProjectPortfolio2.ViewModels
 {
     public class PostModelFactory
     {
-        public static PostViewModel Map(Post post)
+        public static PostViewModel Map(Post post, IUrlHelper url)
         {
+
             return new PostViewModel
             {
                 PostId = post.PostId,
@@ -20,20 +24,22 @@ namespace ProjectPortfolio2.ViewModels
                 Body = post.Body,
                 ClosedDate = post.ClosedDate,
                 Title = post.Title,
-                Comments = GetListOfCommentsView(post.Comments),
+                Comments = GetListOfCommentsView(post.Comments, url),
+                //User = GetUserViewModel(post.User),
                 User = new UserPostViewModel
                 {
                     Displayname = post.User.DisplayName,
-                    CreationDate = post.User.CreationDate
+                    CreationDate = post.User.CreationDate,
+                    Url = url.Link(Config.UserRoute, new { id = post.User.Id })
                 },
-                AcceptedAnswer = getAcceptedAnswerView(post),
-                Answers = getListOfAnswerView(post),
+                AcceptedAnswer = getAcceptedAnswerView(post, url),
+                Answers = getListOfAnswerView(post, url),
                 Tags = post.TagsList,
                 RelatedPosts = post.RelatedPostsLists
             };
         }
 
-        public static List<PostListViewModel> getListOfAnswerView(Post post)
+        public static List<PostListViewModel> getListOfAnswerView(Post post, IUrlHelper url)
         {
             var answers = new List<PostListViewModel>();
 
@@ -46,7 +52,7 @@ namespace ProjectPortfolio2.ViewModels
                     CreationDate = item.CreationDate,
                     Body = item.Body,
                     Score = item.Score,
-                    Comment = GetListOfCommentsView(item.Comments)
+                    Comment = GetListOfCommentsView(item.Comments, url)
                 };
                 try
                 {
@@ -54,6 +60,7 @@ namespace ProjectPortfolio2.ViewModels
                     {
                         Displayname = item.User.DisplayName,
                         CreationDate = item.User.CreationDate,
+                        Url = url.Link(Config.UserRoute, new { id = post.User.Id })
                     };
                 }
                 catch (Exception)
@@ -66,23 +73,26 @@ namespace ProjectPortfolio2.ViewModels
             return answers;
         }
 
-        public static List<CommentViewModel> GetListOfCommentsView(List<Comment> commentList)
+        public static List<CommentViewModel> GetListOfCommentsView(List<Comment> commentList, IUrlHelper url)
         {
             var comments = new List<CommentViewModel>();
             foreach (var comment in commentList)
             {
                 var tmp = new CommentViewModel
                 {
+                    Id = comment.Id,
                     CreateDate = comment.CreateDate,
                     Score = comment.Score,
                     Text = comment.Text,
+                    Url = url.Link(Config.CommentRoute, new { id = comment.Id })
                 };
                 try
                 {
                     tmp.User = new UserPostViewModel
-                    {
+                    {                     
                         Displayname = comment.User.DisplayName,
-                        CreationDate = comment.User.CreationDate
+                        CreationDate = comment.User.CreationDate,
+                        Url = url.Link(Config.UserRoute, new { id = comment.User.Id })
                     };
                 }
                 catch (Exception)
@@ -94,7 +104,7 @@ namespace ProjectPortfolio2.ViewModels
             return comments;
         }
 
-        public static AcceptedPostViewModel getAcceptedAnswerView(Post post)
+        public static AcceptedPostViewModel getAcceptedAnswerView(Post post, IUrlHelper url)
         {
             // create accepted answer using viewModel
             var acceptedAnswer = new AcceptedPostViewModel
@@ -103,14 +113,15 @@ namespace ProjectPortfolio2.ViewModels
                 Body = post.AcceptedAnswer.Body,
                 Score = post.AcceptedAnswer.Score,
                 Title = post.AcceptedAnswer.Title,
-                Comments = GetListOfCommentsView(post.AcceptedAnswer.Comments),
+                Comments = GetListOfCommentsView(post.AcceptedAnswer.Comments, url),
             };
             try
             {
                 acceptedAnswer.User = new UserPostViewModel
                 {
                     CreationDate = post.AcceptedAnswer.User.CreationDate,
-                    Displayname = post.AcceptedAnswer.User.DisplayName
+                    Displayname = post.AcceptedAnswer.User.DisplayName,
+                    Url = url.Link(Config.UserRoute, new { id = post.User.Id })
                 };
             }
             catch (Exception)
