@@ -86,10 +86,21 @@ namespace ProjectPortfolio2.Controllers
 
             if (!_userService.UpdateUser(user))
             {
-                return NotFound("2");
+                return NotFound();
             }
 
-            return Ok("1");
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (!_userService.DeleteUser(id))
+            {
+                return NotFound();
+            }
+
+            return Ok();
         }
     }
 }
