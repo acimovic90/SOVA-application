@@ -8,7 +8,7 @@ namespace DomainModels.Models
     public class Post
     {
         [Column("id")]
-        public int? PostId { get; set; }
+        public int PostId { get; set; }
         [Column("posttypeid")]
         public int PostTypeId { get; set; }
         [Column("acceptedanswerid")]
