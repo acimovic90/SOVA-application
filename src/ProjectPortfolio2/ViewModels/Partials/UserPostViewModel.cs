@@ -10,5 +10,6 @@ namespace ProjectPortfolio2.ViewModels.Templates
         public string Displayname { get; set; }
         public DateTime? CreationDate { get; set; }
 
+        public string Url { get; set; }
     }
 }

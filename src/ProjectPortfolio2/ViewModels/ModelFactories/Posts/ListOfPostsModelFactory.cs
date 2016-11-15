@@ -40,7 +40,8 @@ namespace ProjectPortfolio2.ViewModels
                     tmp.User = new UserPostViewModel
                     {
                         Displayname = user[0].DisplayName,
-                        CreationDate = user[0].CreationDate
+                        CreationDate = user[0].CreationDate,
+                        Url = url.Link(Config.UserRoute, new { id = user[0].Id})
                     };
                 }
                 catch (Exception)
