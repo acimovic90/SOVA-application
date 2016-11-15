@@ -77,5 +77,19 @@ namespace ProjectPortfolio2.Controllers
             _userService.AddUser(user);
             return Ok(UserModelFactory.Map(user, Url));
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] UserViewModel model)
+        {
+            var user = UserModelFactory.Map(model);
+            user.Id = id;
+
+            if (!_userService.UpdateUser(user))
+            {
+                return NotFound("2");
+            }
+
+            return Ok("1");
+        }
     }
 }
