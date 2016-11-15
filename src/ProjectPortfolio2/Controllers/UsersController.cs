@@ -30,7 +30,7 @@ namespace ProjectPortfolio2.Controllers
 
             var result = new
             {
-                users = viewModel,
+                users = viewModel.Users,
                 total = total,
                 prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
                 next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
