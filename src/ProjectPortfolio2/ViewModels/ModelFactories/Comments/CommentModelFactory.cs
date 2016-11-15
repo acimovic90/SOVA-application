@@ -11,7 +11,7 @@ namespace ProjectPortfolio2.ViewModels.ModelFactories
 {
     public class CommentModelFactory
     {
-        public static List<CommentViewModel> Map(List<Comment> comments, IUrlHelper url)
+        public static List<CommentViewModel> Map(IList<Comment> comments, IUrlHelper url) //Ændret list til ilist skulle der opstå fejl nogle steder
         {
             var commentsList = new List<CommentViewModel>(); //
                                                              //var commentsViewModel = new CommentViewModel();
