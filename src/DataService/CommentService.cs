@@ -28,6 +28,28 @@ namespace DataService
             }
         }
 
+        public List<Comment> GetAllComments(int page, int pageSize)
+        {
+            using (var db = new SovaContext())
+            {
+                return db.Comments
+                    .Skip(page * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+            }
+        }
+        public int GetNumberOfComments()
+        {
+            using (var db = new SovaContext())
+            {
+
+                var commentsCount = (from c in db.Comments
+                                 select c).Count();
+
+
+                return commentsCount;
+            }
+        }
         public User GetUserById(int id)
         {
             using (var db = new SovaContext())

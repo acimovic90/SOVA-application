@@ -22,9 +22,23 @@ namespace ProjectPortfolio2.Controllers
         }
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get(int page = 0, int pageSize = Config.DefaultPageSize)
         {
-            return new string[] { "value1", "value2" };
+            var comment = _commentService.GetAllComments(page, pageSize);
+            if (comment == null) return NotFound();
+            var viewModel = CommentModelFactory.Map(comment, Url);
+
+            var total = _commentService.GetNumberOfComments();
+
+            var result = new
+            {
+                comments = viewModel,
+                total = total,
+                prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
+                next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
+            };
+
+            return Ok(result);
         }
 
         // GET api/values/5

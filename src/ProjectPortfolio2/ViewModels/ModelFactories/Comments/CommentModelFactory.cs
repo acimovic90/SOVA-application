@@ -21,7 +21,9 @@ namespace ProjectPortfolio2.ViewModels.ModelFactories
 
                 var commentsViewModel = new CommentViewModel
                 {
+                    Id = comment.Id,
                     Url = url.Link(Config.PostRoute, new { id = comment.Id }),
+                    Score = comment.Score,
                     Text = comment.Text,
                     CreateDate = comment.CreateDate
                 };

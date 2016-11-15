@@ -8,9 +8,9 @@ namespace ProjectPortfolio2.ViewModels.Partials
 {
     public class CommentListViewModel
     {
-        //public string Url { get; set; }
-        //public string Text { get; set; }
-        //public DateTime? CreateDate { get; set; }
+        public string Url { get; set; }
+        public string Text { get; set; }
+        public DateTime? CreateDate { get; set; }
         //public UserPostViewModel User { get; set; }
         public List<CommentViewModel> Comments { get; set; }
     }
