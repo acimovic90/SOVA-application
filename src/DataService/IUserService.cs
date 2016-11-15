@@ -14,5 +14,6 @@ namespace DataService
         List<Post> GetUsersPosts(int id);
         List<Post> GetUsersFavouritePosts(int id);
         void AddUser(User user);
+        bool UpdateUser(User user);
     }
 }
