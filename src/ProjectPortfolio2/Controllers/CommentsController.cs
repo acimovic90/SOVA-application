@@ -45,7 +45,7 @@ namespace ProjectPortfolio2.Controllers
         [HttpGet("{id}", Name = Config.CommentRoute)]
         public IActionResult Get(int id)
         {
-            var comment = _commentService.GetComments(id);
+            var comment = _commentService.GetCommentsById(id);
             if (comment == null) return NotFound();
             var viewModel = CommentModelFactory.Map(comment, Url);
 

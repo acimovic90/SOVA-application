@@ -10,7 +10,7 @@ namespace DataService
     {
         //IList<Comment> GetUser(List<int> userid);
         int GetNumberOfComments();
-        List<Comment> GetComments(int postid);
+        IList<Comment> GetCommentsById(int id);
         List<Comment> GetAllComments(int page, int pageSize);
     }
 }
