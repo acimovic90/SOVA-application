@@ -9,15 +9,12 @@ namespace DataService
 {
     public class CommentService : ICommentService
     {
-        public IList<Comment> GetCommentsById(int id)
+        public Comment GetCommentById(int id)
         {
             using (var db = new SovaContext())
             {
-                var comments = db.Comments
-                    .Where(c => c.Id == id)
-                    .ToList();
-
-                return comments;
+                var comment = db.Comments.FirstOrDefault(c => c.Id == id);
+                return comment;
        
             }
         }

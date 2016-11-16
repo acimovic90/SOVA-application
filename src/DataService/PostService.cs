@@ -60,7 +60,17 @@ namespace DataService
             }
         }
 
-        
+        public List<Comment> GetCommentsByPostId(int postId)
+        {
+            using (var db = new SovaContext())
+            {
+                var result = db.Comments.FromSql("call getComments({0})", postId);
+
+                return result.ToList();
+
+            }
+        }
+
 
         public IList<Post> GetAnswers(int postId)
         {

@@ -19,7 +19,7 @@ namespace DomainModels.Models
         [Column("userid")]
         public int UserId { get; set; }
 
-        //[NotMapped]
+        [NotMapped]
         public User User { get; set; }
     }
 }
