@@ -10,15 +10,15 @@ namespace ProjectPortfolio2.Tests
 {
     public class PostTest
     {
-        private static readonly IPostService _postService = new PostService();
-        private static readonly PostsController _postsController = new PostsController(_postService);
+        private static readonly IPostService PostService = new PostService();
+        private static readonly PostsController PostsController = new PostsController(PostService);
 
         [Theory]
         [InlineData(19)]
         [InlineData(709)]
         public void Should_return_a_single_post(int value)
         {
-            var post = _postService.GetPostById(value);
+            var post = PostService.GetPostById(value);
 
             Assert.Equal(value, post.PostId);
         }
