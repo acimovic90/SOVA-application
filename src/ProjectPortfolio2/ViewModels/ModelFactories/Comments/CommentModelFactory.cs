@@ -10,7 +10,7 @@ namespace ProjectPortfolio2.ViewModels.ModelFactories.Comments
 {
     public class CommentModelFactory
     {
-        public static CommentViewModel Map(Comment comment, IUrlHelper url)
+        public static CommentViewModel Map(Comment comment, IUrlHelper url) //
         {
 
             return new CommentViewModel
