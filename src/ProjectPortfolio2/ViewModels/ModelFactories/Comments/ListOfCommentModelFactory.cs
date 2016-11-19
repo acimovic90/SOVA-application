@@ -23,7 +23,10 @@ namespace ProjectPortfolio2.ViewModels.ModelFactories
                     Url = url.Link(Config.CommentRoute, new { id = comment.Id }),
                     Score = comment.Score,
                     Text = comment.Text,
-                    CreateDate = comment.CreateDate
+                    CreateDate = comment.CreateDate,
+                    UserId = comment.UserId
+                    
+                    
                 };
 
                 commentsList.Add(tmp);
