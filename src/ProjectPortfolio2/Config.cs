@@ -16,5 +16,6 @@ namespace ProjectPortfolio2
         public const string PostsRoute = "PostsRoute";
         public const string PostCommentRoute = "PostCommentRoute";
         public const string CommentRoute = "CommentRoute";
+        public const string CommentsRoute = "CommentsRoute";
     }
 }

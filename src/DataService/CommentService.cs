@@ -14,8 +14,11 @@ namespace DataService
             using (var db = new SovaContext())
             {
                 var comment = db.Comments.FirstOrDefault(c => c.Id == id);
+               
+
+                var user = GetUserById(comment.UserId);
+                comment.User = user;
                 return comment;
-       
             }
         }
 
@@ -23,12 +26,17 @@ namespace DataService
         {
             using (var db = new SovaContext())
             {
-                return db.Comments
+                var comments = db.Comments
                     .Skip(page * pageSize)
                     .Take(pageSize)
                     .ToList();
+
+                return comments;
             }
         }
+
+
+
         public int GetNumberOfComments()
         {
             using (var db = new SovaContext())

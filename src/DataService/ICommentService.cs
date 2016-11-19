@@ -12,5 +12,6 @@ namespace DataService
         int GetNumberOfComments();
         Comment GetCommentById(int id);
         List<Comment> GetAllComments(int page, int pageSize);
+        User GetUserById(int id);
     }
 }

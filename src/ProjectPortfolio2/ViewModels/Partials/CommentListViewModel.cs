@@ -14,6 +14,7 @@ namespace ProjectPortfolio2.ViewModels.Partials
         public string Text { get; set; }
         public DateTime? CreateDate { get; set; }
         public int UserId { get; set; }
+        public CommentUserViewModel CommentUser { get; set; }
         public UserPostViewModel User { get; set; }
        
     }

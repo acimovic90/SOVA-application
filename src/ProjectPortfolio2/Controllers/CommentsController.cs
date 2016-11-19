@@ -22,7 +22,7 @@ namespace ProjectPortfolio2.Controllers
             _commentService = commentService;
         }
         // GET: api/values
-        [HttpGet]
+        [HttpGet(Name = Config.CommentsRoute)]
         public IActionResult Get(int page = 0, int pageSize = Config.DefaultPageSize)
         {
             var comment = _commentService.GetAllComments(page, pageSize);
@@ -35,8 +35,8 @@ namespace ProjectPortfolio2.Controllers
             {
                 comments = viewModel.Comments,
                 total = total,
-                prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
-                next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
+                prev = GetPrevUrl(Url, Config.CommentsRoute, page, pageSize),
+                next = GetNextUrl(Url, Config.CommentsRoute, page, pageSize, total)
             };
 
             return Ok(result);

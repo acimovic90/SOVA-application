@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DomainModels.Models;
 using Microsoft.AspNetCore.Mvc;
+using ProjectPortfolio2.ViewModels.Partials;
 using ProjectPortfolio2.ViewModels.Templates;
 
 namespace ProjectPortfolio2.ViewModels.ModelFactories.Comments
@@ -20,7 +21,12 @@ namespace ProjectPortfolio2.ViewModels.ModelFactories.Comments
                 Score = comment.Score,
                 Text = comment.Text,
                 CreateDate = comment.CreateDate,
-                UserId = comment.UserId
+                CommentUser = new CommentUserViewModel()
+                {
+                    Displayname = comment.User.DisplayName,
+                    CreationDate = comment.User.CreationDate,
+                    Url = url.Link(Config.UserRoute, new { id = comment.User.Id })
+                }
             };
         }
     }
