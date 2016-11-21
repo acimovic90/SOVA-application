@@ -127,7 +127,6 @@ namespace DataService
         }
 
 
-
         public IList<Tag> GetTags(int postId)
         {
             using (var db = new SovaContext())
@@ -144,30 +143,41 @@ namespace DataService
             }
 
         }
+
         public int GetNumberOfPosts()
         {
             using (var db = new SovaContext())
             {
 
                 var postCount = (from p in db.Posts
-                    where p.PostTypeId == 1
-                    select p).Count();
+                                 where p.PostTypeId == 1
+                                 select p).Count();
 
 
                 return postCount;
             }
         }
-        public IList<Post> GetPosts(int page, int pageSize)
+
+        public IList<Post> GetPosts(int page, int pageSize, string query)
         {
-            using (var db = new SovaContext())
+            if (string.IsNullOrEmpty(query))
             {
-                return db.Posts 
-                    .Where(x=> x.PostTypeId == 1)                 
-                    .Skip(page * pageSize)
-                    .Take(pageSize)                   
-                    .ToList();
+                using (var db = new SovaContext())
+                {
+                    return db.Posts
+                        .Where(x => x.PostTypeId == 1)
+                        .Skip(page * pageSize)
+                        .Take(pageSize)
+                        .ToList();
+                }
+            }
+            else
+            {
+                var listsOfPosts = GetPostBySearch(page, pageSize, query);
+                return listsOfPosts;
             }
         }
+        
 
         public IList<User> GetListOfUsers(List<int> userIds)
         {
@@ -182,6 +192,7 @@ namespace DataService
             }
             return userList;
         }
+
         public IList<RelatedPost> GetRelatedPosts(int postId)
         {
             using (var db = new SovaContext())
@@ -194,8 +205,52 @@ namespace DataService
                     relatedPostList.Add(post);
                 }
                 return relatedPostList;
+            }
+        }
 
+        public IList<Post> GetPostBySearch(int page, int pageSize,string searchFor)
+        {
 
+            using (var db = new SovaContext())
+            {
+                var result = db.Posts.FromSql("call e3({0} , {1} , {2} )", page, pageSize, searchFor );
+
+                var posts = new List<Post>();
+                foreach (var post in result)
+                {
+                    posts.Add(post);
+                }
+                return posts;
+            }
+        }
+
+        public IList<CloudTag> GetWordCloudList(int page, int pageSize, string cloudType, string searchFor)
+        {
+            using (var db = new SovaContext())
+            {
+                if (cloudType == "tf")
+                {
+                    var result = db.Set<CloudTag>().FromSql("call e4({0} , {1} , {2} )", page, pageSize, searchFor);
+
+                    var tagList = new List<CloudTag>();
+                    foreach (var tag in result)
+                    {
+                       tagList.Add(tag);
+                    }
+                    return tagList;
+                }
+                else
+                {
+                    var result = db.Set<CloudTag>().FromSql("call e5({0} , {1} , {2} )", page, pageSize, searchFor);
+
+                    var tagList = new List<CloudTag>();
+                    foreach (var tag in result)
+                    {
+                        tagList.Add(tag);
+                    }
+                    return tagList;
+                }
+                
             }
         }
     }

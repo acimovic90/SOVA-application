@@ -25,9 +25,10 @@ namespace ProjectPortfolio2.Controllers
 
         // GET: api/values
         [HttpGet(Name = Config.PostsRoute)]
-        public IActionResult Get(int page = 0, int pageSize = Config.DefaultPageSize)
+        public IActionResult Get(int page = 0, int pageSize = Config.DefaultPageSize, string searchFor = "")
         {
-            var posts = _postService.GetPosts(page, pageSize);
+            var searchString = searchFor;
+            var posts = _postService.GetPosts(page, pageSize, searchString);
             if (posts == null) return NotFound();
             var viewModel = ListOfPostsModelFactory.Map(posts.ToList(), Url);
 
@@ -66,22 +67,17 @@ namespace ProjectPortfolio2.Controllers
             return Ok(viewModel);
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //[Route("wordCloud")]
+        //[HttpGet(Name = Config.WordCloudRoute)]
+        //public IActionResult WordCloud(int page = 0, int pageSize = Config.DefaultPageSize,string cloudType = "TF", string searchFor = "")
+        //{
+        //    var cloudTagList = _postService.GetWordCloudList(page, pageSize, cloudType, searchFor);
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //    if (cloudTagList == null) return NotFound();
+        //    return Ok(cloudTagList);
+        //}
+
+       
     }
 }

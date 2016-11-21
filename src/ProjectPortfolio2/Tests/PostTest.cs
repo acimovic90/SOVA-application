@@ -22,7 +22,5 @@ namespace ProjectPortfolio2.Tests
 
             Assert.Equal(value, post.PostId);
         }
-
-
     }
 }

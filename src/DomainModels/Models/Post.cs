@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DomainModels.Models
 {
     [Table("posts")]
-    public class Post
+    public class Post : IEnumerable
     {
         [Column("id")]
         public int PostId { get; set; }
@@ -40,5 +41,9 @@ namespace DomainModels.Models
 
         public List<RelatedPost> RelatedPostsLists = new List<RelatedPost>();
 
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
