@@ -230,9 +230,11 @@ namespace DataService
             {
                 if (cloudType == "tf")
                 {
-                    var result = db.Set<CloudTag>().FromSql("call e4({0} , {1} , {2} )", page, pageSize, searchFor);
+                    var result = db.CloudTags.FromSql("call e4({0} , {1} , {2} )", page, pageSize, searchFor);
+                       
 
                     var tagList = new List<CloudTag>();
+                  
                     foreach (var tag in result)
                     {
                        tagList.Add(tag);
@@ -241,7 +243,7 @@ namespace DataService
                 }
                 else
                 {
-                    var result = db.Set<CloudTag>().FromSql("call e5({0} , {1} , {2} )", page, pageSize, searchFor);
+                    var result = db.CloudTags.FromSql("call e5({0} , {1} , {2} )", page, pageSize, searchFor);
 
                     var tagList = new List<CloudTag>();
                     foreach (var tag in result)

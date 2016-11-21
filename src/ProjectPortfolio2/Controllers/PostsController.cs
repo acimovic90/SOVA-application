@@ -67,16 +67,14 @@ namespace ProjectPortfolio2.Controllers
             return Ok(viewModel);
         }
 
+        [HttpGet("wordCloud",Name = Config.WordCloudRoute)]
+        public IActionResult WordCloud(int page = 0, int pageSize = Config.DefaultPageSize,string cloudType = "TF", string searchFor = "")
+        {
+            var cloudTagList = _postService.GetWordCloudList(page, pageSize, cloudType, searchFor);
 
-        //[Route("wordCloud")]
-        //[HttpGet(Name = Config.WordCloudRoute)]
-        //public IActionResult WordCloud(int page = 0, int pageSize = Config.DefaultPageSize,string cloudType = "TF", string searchFor = "")
-        //{
-        //    var cloudTagList = _postService.GetWordCloudList(page, pageSize, cloudType, searchFor);
-
-        //    if (cloudTagList == null) return NotFound();
-        //    return Ok(cloudTagList);
-        //}
+            if (cloudTagList == null) return NotFound();
+            return Ok(cloudTagList);
+        }
 
        
     }

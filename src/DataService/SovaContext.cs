@@ -16,13 +16,11 @@ namespace DataService
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<RelatedPost> RelatedPosts { get; set; }
+        public DbSet<CloudTag> CloudTags { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
-            //modelBuilder.Entity<Post>()
-            //    .HasMany(c => c.Comments)
-            //    .WithOne(p => p.Post);
+            modelBuilder.Entity<CloudTag>().HasKey(t => new {t.Word, t.Count});
        
             base.OnModelCreating(modelBuilder);
         }
