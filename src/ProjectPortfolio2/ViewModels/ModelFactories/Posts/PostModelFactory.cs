@@ -25,18 +25,30 @@ namespace ProjectPortfolio2.ViewModels
                 ClosedDate = post.ClosedDate,
                 Title = post.Title,
                 Comments = GetListOfCommentsView(post.Comments, url),
-                //User = GetUserViewModel(post.User),
-                User = new UserPostViewModel
-                {
-                    Displayname = post.User.DisplayName,
-                    CreationDate = post.User.CreationDate,
-                    Url = url.Link(Config.UserRoute, new { id = post.User.Id })
-                },
-                AcceptedAnswer = getAcceptedAnswerView(post, url),
+                User = GetUserViewModel(post.User, url),
+                AcceptedAnswer = GetAcceptedAnswerView(post, url),
                 Answers = getListOfAnswerView(post, url),
                 Tags = post.TagsList,
                 RelatedPosts = post.RelatedPostsLists
             };
+        }
+
+        private static UserPostViewModel GetUserViewModel(User postUser, IUrlHelper url)
+        {
+            try
+            {
+                var user = new UserPostViewModel
+                {
+                    Displayname = postUser.DisplayName,
+                    CreationDate = postUser.CreationDate,
+                    Url = url.Link(Config.UserRoute, new {id = postUser.Id})
+                };
+                return user;
+            }
+            catch (Exception)
+            {
+            }
+            return null;
         }
 
         public static List<PostListViewModel> getListOfAnswerView(Post post, IUrlHelper url)
@@ -104,7 +116,7 @@ namespace ProjectPortfolio2.ViewModels
             return comments;
         }
 
-        public static AcceptedPostViewModel getAcceptedAnswerView(Post post, IUrlHelper url)
+        public static AcceptedPostViewModel GetAcceptedAnswerView(Post post, IUrlHelper url)
         {
             // create accepted answer using viewModel
             var acceptedAnswer = new AcceptedPostViewModel

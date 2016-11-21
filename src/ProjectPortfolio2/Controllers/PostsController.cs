@@ -23,12 +23,12 @@ namespace ProjectPortfolio2.Controllers
             _postService = postService;
         }
 
+
         // GET: api/values
         [HttpGet(Name = Config.PostsRoute)]
-        public IActionResult Get(int page = 0, int pageSize = Config.DefaultPageSize, string searchFor = "")
+        public IActionResult GetPosts(int page = 0, int pageSize = Config.DefaultPageSize, string searchFor = "")
         {
-            var searchString = searchFor;
-            var posts = _postService.GetPosts(page, pageSize, searchString);
+            var posts = _postService.GetPosts(page, pageSize, searchFor);
             if (posts == null) return NotFound();
             var viewModel = ListOfPostsModelFactory.Map(posts.ToList(), Url);
 
@@ -47,7 +47,7 @@ namespace ProjectPortfolio2.Controllers
 
         // GET api/values/5
         [HttpGet("{id}", Name = Config.PostRoute)]
-        public IActionResult GetPosts(int id)
+        public IActionResult GetPost(int id)
         { 
             var post = _postService.GetPostById(id);
             if (post == null) return NotFound();

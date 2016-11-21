@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using DomainModels.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using Microsoft.EntityFrameworkCore;
 using Remotion.Linq.Clauses;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace DataService
 {
     public class PostService : IPostService
     {
-
-
         public Post GetPostById(int postId)
         {
             using (var db = new SovaContext())
@@ -126,9 +128,9 @@ namespace DataService
 
         }
 
-
         public IList<Tag> GetTags(int postId)
         {
+            
             using (var db = new SovaContext())
             {
                 var result = db.Tags.FromSql("call getPostTags({0})", postId);
@@ -136,7 +138,13 @@ namespace DataService
                 var tagList = new List<Tag>();
                 foreach (var tag in result)
                 {
-                    tagList.Add(tag);
+                    
+                    var t = new Tag
+                    {
+                        Title = tag.Title,
+                        //Url = url(routeName: "PostsRoute", values: new { tag = tag.Title })                     
+                    };
+                    tagList.Add(t);
                 }
                 return tagList;
 
@@ -237,7 +245,13 @@ namespace DataService
                   
                     foreach (var tag in result)
                     {
-                       tagList.Add(tag);
+                       var ct = new CloudTag
+                       {
+                           Word = tag.Word,
+                           Count = tag.Count,
+                           //Url = url.Link(routeName: "PostsRoute", values: new { tag = tag.Word })
+                       };
+                        tagList.Add(ct);
                     }
                     return tagList;
                 }
@@ -248,7 +262,13 @@ namespace DataService
                     var tagList = new List<CloudTag>();
                     foreach (var tag in result)
                     {
-                        tagList.Add(tag);
+                        var ct = new CloudTag
+                        {
+                            Word = tag.Word,
+                            Count = tag.Count,
+                            //Url = url.Link(routeName: "WordCloudRoute", values: new { id = tag.Word })
+                        };
+                        tagList.Add(ct);
                     }
                     return tagList;
                 }

@@ -14,5 +14,6 @@ namespace DomainModels.Models
         [Column("count")]
         public decimal Count { get; set; }
 
+        public string Url = null;
     }
 }

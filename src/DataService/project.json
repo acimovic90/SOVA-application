@@ -3,6 +3,8 @@
 
   "dependencies": {
     "DomainModels": "1.0.0-*",
+    "Microsoft.AspNetCore.Mvc.Abstractions": "1.0.1",
+    "Microsoft.AspNetCore.Mvc.Core": "1.0.1",
     "Microsoft.EntityFrameworkCore.Relational": "1.0.1",
     "NETStandard.Library": "1.6.0",
     "Pomelo.EntityFrameworkCore.MySql": "1.0.1",

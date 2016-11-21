@@ -10,5 +10,7 @@ namespace DomainModels.Models
     {
         [Key]
         public string Title { get; set; }
+
+        public string Url = null;
     }
 }
