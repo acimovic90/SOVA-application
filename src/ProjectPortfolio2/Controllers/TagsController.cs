@@ -49,11 +49,5 @@ namespace ProjectPortfolio2.Controllers
             var viewModel = TagModelFactory.Map(tag, Url);
             return Ok(viewModel);
         }
-
-        [HttpGet("{id}/posts", Name = Config.TagPostsRoute)]
-        public IActionResult GetPosts(int id)
-        {
-            return Ok("3");
-        }
     }
 }

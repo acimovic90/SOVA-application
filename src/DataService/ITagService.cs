@@ -11,6 +11,5 @@ namespace DataService
         int GetNumberOfTags();
         List<Tag> GetTags(int page, int pageSize);
         Tag GetTagById(int id);
-        List<Post> GetPostsByTag(int id);
     }
 }

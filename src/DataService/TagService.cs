@@ -17,11 +17,6 @@ namespace DataService
                     .Count();
             }
         }
-   
-        public List<Post> GetPostsByTag(int id)
-        {
-            throw new NotImplementedException();
-        }
 
         public Tag GetTagById(int id)
         {
