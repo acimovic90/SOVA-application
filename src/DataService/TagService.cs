@@ -9,6 +9,15 @@ namespace DataService
 {
     public class TagService : ITagService
     {
+        public int GetNumberOfTags()
+        {
+            using (var db = new SovaContext())
+            {
+                return db.Tags
+                    .Count();
+            }
+        }
+   
         public List<Post> GetPostsByTag(int id)
         {
             throw new NotImplementedException();

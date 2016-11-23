@@ -25,21 +25,19 @@ namespace ProjectPortfolio2.Controllers
             var tags = _tagService.GetTags(page, pageSize);
             if (tags == null) return NotFound();
 
-            return Ok(tags);
+            var viewModel = ListOfTagsModelFactory.Map(tags, Url);
 
-            //var viewModel = ListOfUsersModelFactory.Map(users, Url);
+            var total = _tagService.GetNumberOfTags();
 
-            //var total = _userService.GetNumberOfUsers();
+            var result = new
+            {
+                tags = viewModel.Tags,
+                total = total,
+                prev = GetPrevUrl(Url, Config.TagsRoute, page, pageSize),
+                next = GetNextUrl(Url, Config.TagsRoute, page, pageSize, total)
+            };
 
-            //var result = new
-            //{
-            //    users = viewModel.Users,
-            //    total = total,
-            //    prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
-            //    next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
-            //};
-
-            //return Ok(result);
+            return Ok(result);
         }
 
         [HttpGet("{id}", Name = Config.TagRoute)]
