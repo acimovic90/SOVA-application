@@ -21,7 +21,13 @@ namespace DataService
 
         public List<Tag> GetTags(int page, int pageSize)
         {
-            throw new NotImplementedException();
+            using (var db = new SovaContext())
+            {
+                return db.Tags
+                    .Skip(page * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+            }
         }
     }
 }

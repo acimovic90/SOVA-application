@@ -22,19 +22,34 @@ namespace ProjectPortfolio2.Controllers
         [HttpGet(Name = Config.TagsRoute)]
         public IActionResult Get(int page = 0, int pageSize = Config.DefaultPageSize)
         {
-            return Ok();
+            var tags = _tagService.GetTags(page, pageSize);
+            if (tags == null) return NotFound();
+
+            var viewModel = ListOfUsersModelFactory.Map(users, Url);
+
+            var total = _userService.GetNumberOfUsers();
+
+            var result = new
+            {
+                users = viewModel.Users,
+                total = total,
+                prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
+                next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
+            };
+
+            return Ok(result);
         }
 
         [HttpGet("{id}", Name = Config.TagRoute)]
         public IActionResult Get(int id)
         {
-            return Ok();
+            return Ok("2");
         }
 
         [HttpGet("{id}/posts", Name = Config.TagPostsRoute)]
         public IActionResult GetPosts(int id)
         {
-            return Ok();
+            return Ok("3");
         }
     }
 }
