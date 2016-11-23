@@ -9,19 +9,33 @@ namespace DataService
 {
     public class TagService : ITagService
     {
-        public List<Post> GetPostsByTag(int id)
+        public int GetNumberOfTags()
         {
-            throw new NotImplementedException();
+            using (var db = new SovaContext())
+            {
+                return db.Tags
+                    .Count();
+            }
         }
 
         public Tag GetTagById(int id)
         {
-            throw new NotImplementedException();
+            using (var db = new SovaContext())
+            {
+                return db.Tags
+                    .FirstOrDefault(t => t.Id == id);
+            }
         }
 
         public List<Tag> GetTags(int page, int pageSize)
         {
-            throw new NotImplementedException();
+            using (var db = new SovaContext())
+            {
+                return db.Tags
+                    .Skip(page * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+            }
         }
     }
 }

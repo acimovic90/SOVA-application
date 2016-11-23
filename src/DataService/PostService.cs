@@ -141,6 +141,7 @@ namespace DataService
                     
                     var t = new Tag
                     {
+                        Id = tag.Id,
                         Title = tag.Title,
                         //Url = url(routeName: "PostsRoute", values: new { tag = tag.Title })                     
                     };
