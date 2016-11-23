@@ -18,5 +18,8 @@ namespace ProjectPortfolio2
         public const string WordCloudRoute = "WordCloudRoute";
         public const string CommentRoute = "CommentRoute";
         public const string CommentsRoute = "CommentsRoute";
+        public const string TagsRoute = "TagsRoute";
+        public const string TagRoute = "TagRoute";
+        public const string TagPostsRoute = "TagPostsRoute";
     }
 }
