@@ -10,6 +10,8 @@ namespace DomainModels.Models
     [Table("postTags")]
     public class Tag
     {
+        [Column("id")]
+        public int Id { get; set; }
         [Key]
         public string Title { get; set; }
 
