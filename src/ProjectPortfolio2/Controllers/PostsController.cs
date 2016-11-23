@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DataService;
 using System.Net.Http;
+using System.Web.Http;
 using ProjectPortfolio2.ViewModels;
 using ProjectPortfolio2.ViewModels.ModelFactories;
 
@@ -48,7 +49,7 @@ namespace ProjectPortfolio2.Controllers
         // GET api/values/5
         [HttpGet("{id}", Name = Config.PostRoute)]
         public IActionResult GetPost(int id)
-        { 
+        {
             var post = _postService.GetPostById(id);
             if (post == null) return NotFound();
             var viewModel = PostModelFactory.Map(post, Url);
@@ -67,15 +68,21 @@ namespace ProjectPortfolio2.Controllers
             return Ok(viewModel);
         }
 
-        [HttpGet("wordCloud",Name = Config.WordCloudRoute)]
-        public IActionResult WordCloud(int page = 0, int pageSize = Config.DefaultPageSize,string cloudType = "TF", string searchFor = "")
+        [HttpGet("wordCloud", Name = Config.WordCloudRoute)]
+        public IActionResult WordCloud(int page = 0, int pageSize = Config.DefaultPageSize, string cloudType = "tf", string searchFor = "")
         {
             var cloudTagList = _postService.GetWordCloudList(page, pageSize, cloudType, searchFor);
 
-            if (cloudTagList == null) return NotFound();
-            return Ok(cloudTagList);
+            if (cloudTagList == null || cloudTagList.Count == 0)
+            {        
+                return NotFound("Please specify a searchFor param");
+            }
+            else
+            {
+                return Ok(cloudTagList);
+            }
         }
 
-       
+
     }
 }

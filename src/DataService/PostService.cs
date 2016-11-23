@@ -236,7 +236,7 @@ namespace DataService
         {
             using (var db = new SovaContext())
             {
-                if (cloudType == "tf")
+                if (cloudType.ToLower() == "tf")
                 {
                     var result = db.CloudTags.FromSql("call e4({0} , {1} , {2} )", page, pageSize, searchFor);
                        
