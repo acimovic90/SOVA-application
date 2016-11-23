@@ -45,7 +45,11 @@ namespace ProjectPortfolio2.Controllers
         [HttpGet("{id}", Name = Config.TagRoute)]
         public IActionResult Get(int id)
         {
-            return Ok("2");
+            var tag = _tagService.GetTagById(id);
+            if (tag == null) return NotFound();
+
+            var viewModel = TagModelFactory.Map(tag, Url);
+            return Ok(viewModel);
         }
 
         [HttpGet("{id}/posts", Name = Config.TagPostsRoute)]

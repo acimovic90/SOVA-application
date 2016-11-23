@@ -16,7 +16,11 @@ namespace DataService
 
         public Tag GetTagById(int id)
         {
-            throw new NotImplementedException();
+            using (var db = new SovaContext())
+            {
+                return db.Tags
+                    .FirstOrDefault(t => t.Id == id);
+            }
         }
 
         public List<Tag> GetTags(int page, int pageSize)
