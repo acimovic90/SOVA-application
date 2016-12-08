@@ -1,12 +1,15 @@
-﻿define(['knockout', 'dataservice', 'config'], function (ko, dataService, config) {
+﻿define(['knockout', 'dataservice', 'postman', 'config'], function (ko, dataService,postman, config) {
     return function () {
         var posts = ko.observableArray([]);
         var selectedPost = ko.observable();
 
         var selectPost = function (post) {
+            debugger;
             selectedPost(post);
-            postman.publish(config.events.selectPerson, post);
+            postman.publish(config.events.selectPost, post);
         }
+
+
 
         //var isSelected = function (person) {
         //    return person === selectedPerson();
@@ -31,7 +34,6 @@
         return {
             posts,
             selectPost
-            //isSelected
         };
     };
 });

@@ -1,5 +1,8 @@
-﻿body {
+﻿
+img.media-object {
+    width: 45%;
+    border-radius: 50px;
 }
-.user-profile-image {
-    background-image: url('../images/dummy-profile-picture.png');
+.media {
+    /*height: 90px;*/
 }

@@ -11,6 +11,7 @@
             //"toastr": "lib/toastr/toastr.min",
 
             "dataservice": "app/services/dataService",
+            "postman": "app/services/postman",
             "config": "app/config"
         },
         shim: {    
@@ -29,15 +30,11 @@
             template: { require: 'text!app/components/post/postListView.html' }
         });
 
-    //    //ko.components.register("person-details", {
-    //    //    viewModel: { require: 'app/components/person/personDetails' },
-    //    //    template: { require: 'text!app/components/person/personDetailsView.html' }
-    //    //});
+        ko.components.register("singlePost", {
+            viewModel: { require: 'app/components/post/singlePost' },
+            template: { require: 'text!app/components/post/singlePostView.html' }
+        });
 
-    //    //ko.components.register("pet-list", {
-    //    //    viewModel: { require: 'app/components/pet/petlist' },
-    //    //    template: { require: 'text!app/components/pet/petListView.html' }
-    //    //});
     });
     require(['tether'], function (Tether) {
         window.Tether = Tether;

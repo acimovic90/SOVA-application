@@ -2,7 +2,8 @@
     return function () {
         var menuItems = [
             { title: config.menuItems.posts, component: 'post-list' }
-            //{ title: config.menuItems.pets, component: 'pet-list' }
+            //,
+            //{ title: config.menuItems.singlePost, component: 'singlePost' }
         ];
         var currentComponent = ko.observable();
         var selectedMenu = ko.observable();

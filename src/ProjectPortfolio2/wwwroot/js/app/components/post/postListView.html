@@ -11,16 +11,25 @@
             <div class="well well-sm">
                 <div class="media">
                     <a class="thumbnail pull-left" href="#">
-                        <img class="media-object" src="../../../../images/Dummy-profile-picture.png" >
+
+                        <img class="media-object" src="../../../../images/Dummy-profile-picture.png">
+
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading" data-bind="text: title, click: " ></h4>
-                        <p><span class="label label-info">888 photos</span> <span class="label label-warning">150 followers</span></p>
+                        <h4 class="media-heading" data-bind="text: title, click: $parent.selectPost"></h4>
+                        <br />
                         <p>
+                            <!-- Hvis den har et accepteret svar skal denne smide på som label -->
+                            <span class="label label-success">Accepted</span>
+
+                            <span class="label label-info">8 answers</span>
+                            <span class="label label-warning">+12 score</span>
+                        </p>
+                        <!--<p>
                             <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a>
                             <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-heart"></span> Favorite</a>
                             <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-ban-circle"></span> Unfollow</a>
-                        </p>
+                        </p>-->
                     </div>
                 </div>
             </div>

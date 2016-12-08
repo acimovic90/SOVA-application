@@ -7,6 +7,12 @@
             callback(data);
         });
     }
+    var getSinglePost = function (id, callback) {
+        var url = "api/posts/"+id;
+        $.getJSON(url, function (data) {
+            callback(data);
+        });
+    }
 
 
 
