@@ -1,12 +1,12 @@
 ﻿define(['knockout', 'dataservice', 'config'], function (ko, dataService, config) {
     return function () {
         var posts = ko.observableArray([]);
-        //var selectedPerson = ko.observable();
+        var selectedPost = ko.observable();
 
-        //var selectPerson = function (person) {
-        //    selectedPerson(person);
-        //    postman.publish(config.events.selectPerson, person);
-        //}
+        var selectPost = function (post) {
+            selectedPost(post);
+            postman.publish(config.events.selectPerson, post);
+        }
 
         //var isSelected = function (person) {
         //    return person === selectedPerson();
@@ -29,8 +29,8 @@
         });
 
         return {
-            posts
-            //selectPerson,
+            posts,
+            selectPost
             //isSelected
         };
     };

@@ -1,3 +1,5 @@
 ﻿body {
 }
- 
+.user-profile-image {
+    background-image: url('../images/dummy-profile-picture.png');
+}
