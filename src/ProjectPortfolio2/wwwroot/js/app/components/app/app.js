@@ -1,8 +1,8 @@
 ﻿define(['knockout', 'config'], function (ko, config) {
     return function () {
         var menuItems = [
-            { title: config.menuItems.persons, component: 'person-list' },
-            { title: config.menuItems.pets, component: 'pet-list' }
+            { title: config.menuItems.posts, component: 'post-list' }
+            //{ title: config.menuItems.pets, component: 'pet-list' }
         ];
         var currentComponent = ko.observable();
         var selectedMenu = ko.observable();

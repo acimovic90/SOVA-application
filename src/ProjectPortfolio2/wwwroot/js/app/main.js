@@ -9,7 +9,7 @@
             "bootstrap": "lib/bootstrap/dist/js/bootstrap.min",
             //"toastr": "lib/toastr/toastr.min",
 
-            //"dataservice": "app/services/dataService",
+            "dataservice": "app/services/dataService",
             "config": "app/config"
         },
         shim: {
@@ -23,10 +23,10 @@
             template: { require: 'text!app/components/app/appView.html' }
         });
 
-    //    //ko.components.register("person-list", {
-    //    //    viewModel: { require: 'app/components/person/personlist' },
-    //    //    template: { require: 'text!app/components/person/personListView.html' }
-    //    //});
+        ko.components.register("post-list", {
+            viewModel: { require: 'app/components/post/postList' },
+            template: { require: 'text!app/components/post/postListView.html' }
+        });
 
     //    //ko.components.register("person-details", {
     //    //    viewModel: { require: 'app/components/person/personDetails' },
