@@ -23,7 +23,8 @@
     "Microsoft.AspNetCore.Mvc.WebApiCompatShim": "1.0.1",
     "xunit": "2.2.0-beta4-build3444",
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
-    "Moq": "4.6.38-alpha"
+    "Moq": "4.6.38-alpha",
+    "Microsoft.AspNetCore.StaticFiles": "1.1.0"
   },
 
   "tools": {

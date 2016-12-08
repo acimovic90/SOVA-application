@@ -57,6 +57,7 @@ namespace ProjectPortfolio2
 
             app.UseMvc();
 
+            app.UseFileServer();
         }
     }
 }
