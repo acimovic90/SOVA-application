@@ -1,7 +1,7 @@
 ﻿(function(undefined) {
 
     require.config({
-        baseUrl: "js",
+        baseUrl: "js", 
         paths: {
             "jquery": "lib/jquery/dist/jquery.min",
             "knockout": "lib/knockout/dist/knockout",
