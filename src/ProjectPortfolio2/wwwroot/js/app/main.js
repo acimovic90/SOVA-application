@@ -6,13 +6,14 @@
             "jquery": "lib/jquery/dist/jquery.min",
             "knockout": "lib/knockout/dist/knockout",
             "text": "lib/requirejs-text/text",
+            "tether": "lib/tether/dist/js/tether.min",
             "bootstrap": "lib/bootstrap/dist/js/bootstrap.min",
             //"toastr": "lib/toastr/toastr.min",
 
             "dataservice": "app/services/dataService",
             "config": "app/config"
         },
-        shim: {
+        shim: {    
             "bootstrap": { "deps": ['jquery'] }
         }
     });
@@ -38,7 +39,10 @@
     //    //    template: { require: 'text!app/components/pet/petListView.html' }
     //    //});
     });
-
+    require(['tether'], function (Tether) {
+        window.Tether = Tether;
+    });
+        
     require(['knockout', 'bootstrap'], function (ko) {
         ko.applyBindings();
     });
