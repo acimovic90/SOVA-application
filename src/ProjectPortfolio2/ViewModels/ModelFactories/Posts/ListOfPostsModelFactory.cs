@@ -26,6 +26,7 @@ namespace ProjectPortfolio2.ViewModels
                     Id = post.PostId,
                     Title = post.Title,
                     CreationDate = post.CreationDate,
+                    Score = post.Score,
                     Url = url.Link(Config.PostRoute, new { id = post.PostId }),
                 };
                 try
