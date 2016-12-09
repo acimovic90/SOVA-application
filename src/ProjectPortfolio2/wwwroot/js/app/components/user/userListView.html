@@ -1,1 +1,18 @@
-﻿<div>UserListView</div>
+﻿<div data-bind="foreach: users">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <div class="media">
+                    <a class="thumbnail pull-left" href="#">
+
+                        <img class="media-object" src="../../../../images/Dummy-profile-picture.png">
+
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading" data-bind="text: displayname"></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

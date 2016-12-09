@@ -7,6 +7,7 @@
             callback(data);
         });
     }
+
     var getSinglePost = function (id, callback) {
         var url = "api/posts/"+id;
         $.getJSON(url, function (data) {
@@ -14,9 +15,16 @@
         });
     }
 
-
+    var getUsers = function (callback) {
+        var url = "api/users";
+        $.getJSON(url, function (data) {
+            callback(data);
+        });
+    }
 
     return {
-        getPosts
+        getPosts,
+        getSinglePost,
+        getUsers
     };
 });
