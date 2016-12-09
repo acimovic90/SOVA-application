@@ -35,6 +35,11 @@
             template: { require: 'text!app/components/post/singlePostView.html' }
         });
 
+        ko.components.register("user-list", {
+            viewModel: { require: 'app/components/user/userList' },
+            template: { require: 'text!app/components/user/userListView.html' }
+        });
+
     });
     require(['tether'], function (Tether) {
         window.Tether = Tether;
