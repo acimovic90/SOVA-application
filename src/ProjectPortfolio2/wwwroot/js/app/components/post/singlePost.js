@@ -1,8 +1,8 @@
 ﻿define(['knockout', 'dataservice', 'postman', 'config'],
     function (ko, dataService, postman, config) {
         return function () {
-            var singlePost = ko.observableArray([]);
-            debugger;
+            var singlePost = ko.observable();
+
             var goToPosts = function () {
                 postman.publish(
                     config.events.changeMenu,
