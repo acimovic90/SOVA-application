@@ -1,7 +1,7 @@
 ﻿define(['knockout', 'config'], function (ko, config) {
     return function () {
         var menuItems = [
-            { title: config.menuItems.posts, component: 'post-list' }, //Is specified in main.js
+            { title: config.menuItems.posts, component: 'post-list' }, //post-list is specified in main.js
             { title: config.menuItems.users, component: 'user-list' }
             //,
             //{ title: config.menuItems.singlePost, component: 'singlePost' }
@@ -19,7 +19,7 @@
         }
 
 
-        selectMenu(menuItems[0]);
+        selectMenu(menuItems[0]); //0 for post-list
 
         return {
             menuItems,
