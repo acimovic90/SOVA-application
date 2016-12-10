@@ -3,22 +3,17 @@
         return function (params) {
             var user = ko.observable(params.user);
 
-            //var goToPosts = function () {
-            //    postman.publish(
-            //        config.events.changeMenu,
-            //        config.menuItems.posts);
-            //}
 
-            //self.selectTag = function (tag) {
-            //    debugger;
-            //    dataService.getPostsBySearch(tag.title, function (data) {
-            //        postman.publish(config.events.selectTag, { data: data });
-            //    });
-            //}
+            self.selectPost = function (post) {
+                dataService.getSinglePost(post.id, function (data) {
+                    postman.publish(config.events.selectPost, { post: data });
+                });
+            }
 
 
             return {
-                user
+                user,
+                selectPost
             };
         };
     });

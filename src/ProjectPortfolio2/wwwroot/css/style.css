@@ -24,6 +24,9 @@ img.media-object {
     border: 2px solid #478e46;
 }
 
+.singleUserPostsTable{
+    text-align: left;
+}
 
 /* ________ profile view ____________*/
 .src-image {
