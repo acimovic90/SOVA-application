@@ -43,6 +43,11 @@
             viewModel: { require: 'app/components/post/singlePost' },
             template: { require: 'text!app/components/post/singlePostView.html' }
         });
+
+        ko.components.register("single-user", {
+            viewModel: { require: 'app/components/user/singleUser' },
+            template: { require: 'text!app/components/user/singleUserView.html' }
+        });
    
 
         ko.components.register("user-list", {

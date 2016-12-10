@@ -1,49 +1,34 @@
-﻿<div class="col-lg-12" data-bind="with: post">
-
+﻿<div class="col-lg-12" data-bind="with: user">
     <div class="row">
         <div class="col-lg-12">
-            <div class="well well-sm">
-                <div class="media">
-                    <div class="pull-left">
-                        <a class="thumbnail pull-left" href="#">
-                            <img class="media-object" src="../../../../images/Dummy-profile-picture.png">
-                        </a>
-                        <div>
-                            Asked :
-                            <span data-bind="text: creationDate"></span>
-
-                        </div>
-                        <p>
-                            <!-- Hvis den har et accepteret svar skal denne smide på som label -->
-                            <span class="label label-success">Accepted</span>
-
-                            <span class="label label-info">8 answers</span>
-                            <span class="label label-warning" data-bind="text: score"></span>
-
-
-                        </p>
+            <div class="col-lg-12">
+                <div class="card">
+                    <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+                    <div class="avatar">
+                        <img src="../../../../images/Dummy-profile-picture.png" alt="" />
                     </div>
-                    <div class="media-body">
-                        <h4 data-bind="text: title"></h4>
+                    <div class="content">
+                        <div>
+                            <h2 data-bind="text: displayname"></h2>
+                             <p>Age : <span data-bind="text: age"></span></p>
+                            <p data-bind="text: location"></p>
 
-                        <div data-bind="html: body"></div>
-                        <br />
-
-                        <div data-bind="foreach: tags">
-                            <span class="tag label label-default" data-bind="text: title, click: this.selectTag"></span>
+                            <table data-bind="with: posts">
+                                <thead>
+                                    <th>Created</th>
+                                    <th>Titel</th>
+                                    <th>Score</th>
+                                </thead>
+                                <tr data-bind="foreach: posts">
+                                    <td data-bind="text: creationDate"></td>
+                                    <td data-bind="text: title"></td>
+                                    <td data-bind="text: score"></td>
+                                </tr>
+                            </table>
                         </div>
-
-                        <section class="commentSection" data-bind="foreach: comments">
-                            <div class="comment">
-                                <span data-bind="text: text"></span>
-                                <span data-bind="text: createDate"></span>
-                            </div>
-                        </section>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
 </div>

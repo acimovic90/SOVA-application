@@ -7,19 +7,17 @@
                 postman.publish(config.events.selectPost, { post: data });
             });
         }
-        if (params !== undefined) {
-            debugger;
-                posts(params.data.posts);
-            
+        debugger;
+        if (params !== undefined && params.data.posts.length !== 0) {
+            posts(params.data.posts);
         } else {
-            debugger;
-
             dataService.getPosts(function (params) {
                 posts(params.posts);
             });
 
         }
-       
+
+
         return {
             posts,
             selectPost

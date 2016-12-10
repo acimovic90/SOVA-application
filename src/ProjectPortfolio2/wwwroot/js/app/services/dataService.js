@@ -8,7 +8,6 @@
         });
     }
     var getPostsBySearch = function (words, callback) {
-        debugger;
         var url = "api/posts?searchfor=" + words;
         $.getJSON(url, function (data) {
             callback(data);
@@ -17,6 +16,12 @@
 
     var getSinglePost = function (id, callback) {
         var url = "api/posts/"+id;
+        $.getJSON(url, function (data) {
+            callback(data);
+        });
+    }
+    var getSingleUser = function (id, callback) {
+        var url = "api/users/"+id;
         $.getJSON(url, function (data) {
             callback(data);
         });
@@ -32,6 +37,7 @@
     return {
         getPosts,
         getSinglePost,
+        getSingleUser,
         getPostsBySearch,
         getUsers
     };
