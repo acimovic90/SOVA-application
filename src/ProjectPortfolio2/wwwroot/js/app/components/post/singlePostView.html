@@ -24,12 +24,13 @@
                         </p>
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading" data-bind="text: title"></h4>
+                        <h4 data-bind="text: title"></h4>
+                        
                         <div data-bind="html: body"></div>
-                        <br />
+                        <br/>
 
                         <div data-bind="foreach: tags">
-                            <span class="label label-default" data-bind="text: title"></span>
+                            <span class="tag label label-default" data-bind="text: title, click: this.selectTag"></span>
                         </div>
 
                         <section class="commentSection" data-bind="foreach: comments">
@@ -66,7 +67,6 @@
                         </p>
                     </div>
                     <div class="media-body">
-                        <h4 class="media-heading" data-bind="text: title"></h4>
                         <div data-bind="html: body"></div>
 
                         <section class="commentSection" data-bind="foreach: comments">

@@ -25,6 +25,12 @@
             currentParams(params);
             currentComponent("single-post");
         });
+        postman.subscribe(config.events.selectTag, function (params) {
+            currentParams(params);
+            currentComponent("search-tag");
+        });
+
+
 
         return {
             menuItems,
