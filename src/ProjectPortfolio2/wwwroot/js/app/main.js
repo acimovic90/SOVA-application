@@ -29,11 +29,16 @@
             viewModel: { require: 'app/components/post/postList' },
             template: { require: 'text!app/components/post/postListView.html' }
         });
+        ko.components.register("search-tag", {
+            viewModel: { require: 'app/components/post/postList' },
+            template: { require: 'text!app/components/post/postListView.html' }
+        });
 
         ko.components.register("single-post", {
             viewModel: { require: 'app/components/post/singlePost' },
             template: { require: 'text!app/components/post/singlePostView.html' }
         });
+   
 
         ko.components.register("user-list", {
             viewModel: { require: 'app/components/user/userList' },

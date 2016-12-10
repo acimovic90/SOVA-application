@@ -3,11 +3,14 @@ img.media-object {
     width: 45%;
     border-radius: 50px;
 }
-.media {
-    /*height: 90px;*/
+.media-heading, .tag {
+    cursor: pointer;
 }
 .label-default {
     background-color: #929292;
+}
+.navbar-default {
+    background-color: #6a839c;
 }
 .commentSection {
     font-size: 12px;

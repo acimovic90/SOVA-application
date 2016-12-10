@@ -2,7 +2,7 @@
     return {
         events: {
             selectPost: "SelectPost",
-            savePerson: "SavePerson",
+            selectTag: "SelectTag",
             changeMenu: "ChangeMenu"
         },
         menuItems: {

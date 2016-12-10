@@ -7,6 +7,13 @@
             callback(data);
         });
     }
+    var getPostsBySearch = function (words, callback) {
+        debugger;
+        var url = "api/posts?searchfor=" + words;
+        $.getJSON(url, function (data) {
+            callback(data);
+        });
+    }
 
     var getSinglePost = function (id, callback) {
         var url = "api/posts/"+id;
@@ -25,6 +32,7 @@
     return {
         getPosts,
         getSinglePost,
+        getPostsBySearch,
         getUsers
     };
 });

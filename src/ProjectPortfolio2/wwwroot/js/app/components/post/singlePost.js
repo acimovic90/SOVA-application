@@ -9,9 +9,18 @@
                     config.menuItems.posts);
             }
 
+            self.selectTag = function (tag) {
+                debugger;
+                dataService.getPostsBySearch(tag.title, function (data) {
+                    postman.publish(config.events.selectTag, { data : data });
+                });
+            }
+
+
             return {
                 post,
-                goToPosts
+                goToPosts,
+                selectTag
             };
         };
     });
