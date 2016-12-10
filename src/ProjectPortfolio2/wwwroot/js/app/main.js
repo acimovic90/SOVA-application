@@ -12,7 +12,6 @@
 
             "dataservice": "app/services/dataService",
             "postman": "app/services/postman",
-            "custom": "app/custom",
             "config": "app/config"
         },
         shim: {    

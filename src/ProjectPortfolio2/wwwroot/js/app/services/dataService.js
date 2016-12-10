@@ -8,7 +8,6 @@
         });
     }
     var getPostsBySearch = function (words, callback) {
-        debugger;
         var url = "api/posts?searchfor=" + words;
         $.getJSON(url, function (data) {
             callback(data);
