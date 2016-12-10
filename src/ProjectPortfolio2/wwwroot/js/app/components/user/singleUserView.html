@@ -10,21 +10,24 @@
                     <div class="content">
                         <div>
                             <h2 data-bind="text: displayname"></h2>
-                             <p>Age : <span data-bind="text: age"></span></p>
+                            <p>Age : <span data-bind="text: age"></span></p>
                             <p data-bind="text: location"></p>
-
-                            <table data-bind="with: posts">
-                                <thead>
-                                    <th>Created</th>
-                                    <th>Titel</th>
-                                    <th>Score</th>
-                                </thead>
-                                <tr data-bind="foreach: posts">
-                                    <td data-bind="text: creationDate"></td>
-                                    <td data-bind="text: title"></td>
-                                    <td data-bind="text: score"></td>
-                                </tr>
-                            </table>
+                                <table class="table singleUserPostsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Created</th>
+                                            <th>Titel</th>
+                                            <th>Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody data-bind="foreach: posts">
+                                        <tr data-bind="click: this.selectPost">
+                                            <td data-bind="text: creationDate"></td>
+                                            <td data-bind="text: title"></td>
+                                            <td data-bind="text: score"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                         </div>
                     </div>
                 </div>

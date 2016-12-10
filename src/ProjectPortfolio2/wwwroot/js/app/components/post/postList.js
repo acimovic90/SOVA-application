@@ -7,7 +7,7 @@
                 postman.publish(config.events.selectPost, { post: data });
             });
         }
-        debugger;
+        
         if (params !== undefined && params.data.posts.length !== 0) {
             posts(params.data.posts);
         } else {
