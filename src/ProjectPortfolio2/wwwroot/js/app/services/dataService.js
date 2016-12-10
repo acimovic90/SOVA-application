@@ -27,6 +27,7 @@
         });
     }
 
+
     var getUsers = function (callback) {
         var url = "api/users";
         $.getJSON(url, function (data) {

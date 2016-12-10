@@ -32,6 +32,7 @@ namespace ProjectPortfolio2.Controllers
             {
                 users = viewModel.Users,
                 total = total,
+                Url = Config.UsersRoute, //changed
                 prev = GetPrevUrl(Url, Config.UsersRoute, page, pageSize),
                 next = GetNextUrl(Url, Config.UsersRoute, page, pageSize, total)
             };

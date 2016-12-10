@@ -11,6 +11,7 @@ namespace ProjectPortfolio2.ViewModels.Partials
         public int ?Id { get; set; }
         public string Title { get; set; }
         public DateTime CreationDate { get; set; }
+        public int? AcceptedAnswerId { get; set; }
         public string Body { get; set; }
         public int Score { get; set; }
         public UserPostViewModel User { get; set; }
