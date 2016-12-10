@@ -29,6 +29,10 @@
             currentParams(params);
             currentComponent("search-tag");
         });
+        postman.subscribe(config.events.searchPost, function (params) {
+            currentParams(params);
+            currentComponent("search-post");
+        });
 
 
 
