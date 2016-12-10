@@ -1,7 +1,7 @@
 ﻿define(['knockout', 'dataservice', 'postman', 'config'],
     function (ko, dataService, postman, config) {
-        return function () {
-            var singlePost = ko.observable();
+        return function (params) {
+            var post = ko.observable(params.post);
 
             var goToPosts = function () {
                 postman.publish(
@@ -9,12 +9,8 @@
                     config.menuItems.posts);
             }
 
-            dataService.getSinglePost(function (data) {
-                singlePost(data);
-            });
-
             return {
-                petssinglePost,
+                post,
                 goToPosts
             };
         };
