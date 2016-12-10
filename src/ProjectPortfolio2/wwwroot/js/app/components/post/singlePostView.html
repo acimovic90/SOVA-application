@@ -1,11 +1,122 @@
-﻿<div class="col-lg-6" data-bind="with: post">
-    ...<br />
-    <span data-bind="text: title"></span>
+﻿<div class="col-lg-12" data-bind="with: post">
 
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="well well-sm">
+                <div class="media">
+                    <div class="pull-left">
+                        <a class="thumbnail pull-left" href="#">
+                            <img class="media-object" src="../../../../images/Dummy-profile-picture.png">
+                        </a>
+                        <div>
+                            Asked :
+                            <span data-bind="text: creationDate"></span>
+
+                        </div>
+                        <p>
+                            <!-- Hvis den har et accepteret svar skal denne smide på som label -->
+                            <span class="label label-success">Accepted</span>
+
+                            <span class="label label-info">8 answers</span>
+                            <span class="label label-warning" data-bind="text: score"></span>
+
+
+                        </p>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading" data-bind="text: title"></h4>
+                        <div data-bind="html: body"></div>
+                        <br />
+
+                        <div data-bind="foreach: tags">
+                            <span class="label label-default" data-bind="text: title"></span>
+                        </div>
+
+                        <section class="commentSection" data-bind="foreach: comments">
+                            <div class="comment">
+                                <span data-bind="text: text"></span>
+                                <span data-bind="text: createDate"></span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row" data-bind="with: acceptedAnswer">
+        <div class="col-lg-12">
+            <div class="well well-sm acceptedAnswer">
+                <div class="media">
+                    <div class="pull-left">
+                        <a class="thumbnail pull-left" href="#">
+                            <img class="media-object" src="../../../../images/Dummy-profile-picture.png">
+                        </a>
+                        <div>
+                            Answered :
+                            <span data-bind="text: creationDate"></span>
+
+                        </div>
+                        <p>
+                            <!-- Hvis den har et accepteret svar skal denne smide på som label -->
+                            <span class="label label-warning" data-bind="text: score"></span>
+
+
+                        </p>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading" data-bind="text: title"></h4>
+                        <div data-bind="html: body"></div>
+
+                        <section class="commentSection" data-bind="foreach: comments">
+                            <div class="comment">
+                                <span data-bind="text: text"></span>
+                                <span data-bind="text: createDate"></span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-bind="with: answers"></div>
+    <div class="row" data-bind="foreach: answers">
+        <div class="col-lg-12">
+            <div class="well well-sm answer">
+                <div class="media">
+                    <div class="pull-left">
+                        <a class="thumbnail pull-left" href="#">
+                            <img class="media-object" src="../../../../images/Dummy-profile-picture.png">
+                        </a>
+                        <div>
+                            Answered :
+                            <span data-bind="text: creationDate"></span>
+
+                        </div>
+                        <p>
+                            <!-- Hvis den har et accepteret svar skal denne smide på som label -->
+                            <span class="label label-warning" data-bind="text: score"></span>
+
+
+                        </p>
+                    </div>
+                    <div class="media-body">
+                        <div data-bind="html: body"></div>
+                        
+                        <section class="commentSection" data-bind="foreach: comment">
+                            <div class="comment">
+                                <span data-bind="text: text"></span>
+                                <span data-bind="text: createDate"></span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
 
-<!--<span class="list-group-item" data-bind="text: title"></span>
-
-<a href="#" data-bind="click: goToPosts">Back to Posts</a>-->
+<!--<a href="#" data-bind="click: goToPosts">Back to Posts</a>-->

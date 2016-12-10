@@ -6,3 +6,17 @@ img.media-object {
 .media {
     /*height: 90px;*/
 }
+.label-default {
+    background-color: #929292;
+}
+.commentSection {
+    font-size: 12px;
+        margin-top: 15px;
+}
+.comment {
+    padding: 5px 0 5px 20px;
+    border-top: 1px solid #ccc;
+}
+.acceptedAnswer {
+    border: 2px solid #478e46;
+}
