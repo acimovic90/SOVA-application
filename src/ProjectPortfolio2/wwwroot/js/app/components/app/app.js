@@ -1,4 +1,4 @@
-﻿define(['knockout', 'config', 'postman'], function (ko, config, postman) {
+﻿define(['knockout', 'dataservice', 'config', 'postman'], function (ko, dataService, config, postman) {
     return function () {
         var menuItems = [
             { title: config.menuItems.posts, component: 'post-list' }, //Is specified in main.js
@@ -7,6 +7,7 @@
             //{ title: config.menuItems.singlePost, component: 'singlePost' }
         ];
         var currentComponent = ko.observable();
+        var currentParams = ko.observable();
         var selectedMenu = ko.observable();
 
         var selectMenu = function (menu) {
@@ -21,13 +22,14 @@
         selectMenu(menuItems[0]);
 
         postman.subscribe(config.events.selectPost, function (params) {
-            //currentParams(params);
+            currentParams(params);
             currentComponent("single-post");
         });
 
         return {
             menuItems,
             currentComponent,
+            currentParams,
             selectMenu,
             isSelected
         }
