@@ -4,7 +4,8 @@
             selectPost: "SelectPost",
             selectTag: "SelectTag",
             selectUser: "SelectUser",
-            changeMenu: "ChangeMenu"
+            changeMenu: "ChangeMenu",
+            searchPost: "SearchPost"
         },
         menuItems: {
             posts: "Posts",

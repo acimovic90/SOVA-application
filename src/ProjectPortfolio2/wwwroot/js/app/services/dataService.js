@@ -36,9 +36,9 @@
 
     return {
         getPosts,
+        getPostsBySearch,
         getSinglePost,
         getSingleUser,
-        getPostsBySearch,
         getUsers
     };
 });
