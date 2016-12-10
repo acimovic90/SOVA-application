@@ -1,4 +1,4 @@
-﻿define(['knockout', 'config'], function (ko, config) {
+﻿define(['knockout', 'config', 'postman'], function (ko, config, postman) {
     return function () {
         var menuItems = [
             { title: config.menuItems.posts, component: 'post-list' }, //Is specified in main.js
@@ -18,8 +18,12 @@
             return menu === selectedMenu();
         }
 
-
         selectMenu(menuItems[0]);
+
+        postman.subscribe(config.events.selectPost, function (params) {
+            //currentParams(params);
+            currentComponent("single-post");
+        });
 
         return {
             menuItems,

@@ -30,7 +30,7 @@
             template: { require: 'text!app/components/post/postListView.html' }
         });
 
-        ko.components.register("singlePost", {
+        ko.components.register("single-post", {
             viewModel: { require: 'app/components/post/singlePost' },
             template: { require: 'text!app/components/post/singlePostView.html' }
         });

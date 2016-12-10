@@ -9,13 +9,13 @@
                     config.menuItems.posts);
             }
 
-            dataService.getSinglePost(function (data) {
-                singlePost(data);
-            });
+            //dataService.getSinglePost(function (data) {
+            //    singlePost(data);
+            //});
 
             return {
-                petssinglePost,
-                goToPosts
+               singlePost,
+               goToPosts
             };
         };
     });
