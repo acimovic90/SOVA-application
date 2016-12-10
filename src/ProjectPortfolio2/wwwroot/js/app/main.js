@@ -12,6 +12,7 @@
 
             "dataservice": "app/services/dataService",
             "postman": "app/services/postman",
+            "custom": "app/custom",
             "config": "app/config"
         },
         shim: {    
@@ -37,6 +38,11 @@
         ko.components.register("single-post", {
             viewModel: { require: 'app/components/post/singlePost' },
             template: { require: 'text!app/components/post/singlePostView.html' }
+        });
+
+        ko.components.register("single-user", {
+            viewModel: { require: 'app/components/user/singleUser' },
+            template: { require: 'text!app/components/user/singleUserView.html' }
         });
    
 

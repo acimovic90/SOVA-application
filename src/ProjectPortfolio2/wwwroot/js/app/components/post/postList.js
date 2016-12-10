@@ -8,18 +8,15 @@
             });
         }
         if (params !== undefined) {
-            debugger;
-                posts(params.data.posts);
-            
-        } else {
-            debugger;
+            posts(params.data.posts);
 
+        } else {
             dataService.getPosts(function (params) {
                 posts(params.posts);
             });
 
         }
-       
+
         return {
             posts,
             selectPost

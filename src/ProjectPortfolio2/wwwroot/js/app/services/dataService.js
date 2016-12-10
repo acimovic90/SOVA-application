@@ -21,6 +21,12 @@
             callback(data);
         });
     }
+    var getSingleUser = function (id, callback) {
+        var url = "api/users/"+id;
+        $.getJSON(url, function (data) {
+            callback(data);
+        });
+    }
 
     var getUsers = function (callback) {
         var url = "api/users";
@@ -32,6 +38,7 @@
     return {
         getPosts,
         getSinglePost,
+        getSingleUser,
         getPostsBySearch,
         getUsers
     };

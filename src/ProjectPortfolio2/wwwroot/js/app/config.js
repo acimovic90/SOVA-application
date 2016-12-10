@@ -3,6 +3,7 @@
         events: {
             selectPost: "SelectPost",
             selectTag: "SelectTag",
+            selectUser: "SelectUser",
             changeMenu: "ChangeMenu"
         },
         menuItems: {
