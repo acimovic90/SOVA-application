@@ -8,15 +8,6 @@
             });
         }
 
-        //debugger;
-        self.searchPost = function (post) {
-            dataService.getPostsBySearch(post.title, function (data) {
-                postman.publish(config.events.searchPost, { data: data });
-            });
-        }
-
-
-        //debugger;
         if (params !== undefined && params.data.posts.length !== 0) {
             posts(params.data.posts);
         } else {
@@ -30,8 +21,8 @@
 
         return {
             posts,
-            selectPost,
-            searchPost
+            selectPost
+
         };
     };
 });

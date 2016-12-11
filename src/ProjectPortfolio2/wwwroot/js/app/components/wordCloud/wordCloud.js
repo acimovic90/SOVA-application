@@ -8,12 +8,12 @@
         //    });
         //}
 
-        debugger;
+        //debugger;
 
 
 
         return {
-            selectPost
+            //selectPost
             
         };
     };

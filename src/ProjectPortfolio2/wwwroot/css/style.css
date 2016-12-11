@@ -12,6 +12,9 @@ img.media-object {
 .navbar-default {
     background-color: #6a839c;
 }
+button {
+    color: #000;
+}
 .commentSection {
     font-size: 12px;
         margin-top: 15px;

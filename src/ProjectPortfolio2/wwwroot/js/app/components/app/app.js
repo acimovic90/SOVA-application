@@ -8,6 +8,15 @@
         var currentComponent = ko.observable();
         var currentParams = ko.observable();
         var selectedMenu = ko.observable();
+        var searchQuery = ko.observable();
+
+        var search = function () {
+            var searchString = searchQuery();
+            dataService.getPostsBySearch(searchString, function (data) {
+                postman.publish(config.events.searchPost, { data: data });
+            });
+        }
+
 
         var selectMenu = function (menu) {
             selectedMenu(menu);
@@ -44,6 +53,8 @@
             currentComponent,
             currentParams,
             selectMenu,
+            searchQuery,
+            search,
             isSelected
         }
     }

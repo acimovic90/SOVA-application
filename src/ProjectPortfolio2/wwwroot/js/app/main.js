@@ -8,7 +8,7 @@
             "text": "lib/requirejs-text/text",
             "tether": "lib/tether/dist/js/tether.min",
             "bootstrap": "lib/bootstrap/dist/js/bootstrap.min",
-            //"toastr": "lib/toastr/toastr.min",
+            "jqcloud2": "lib/jqcloud2/dist/jqcloud.min.js",
 
             "dataservice": "app/services/dataService",
             "postman": "app/services/postman",

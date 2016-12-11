@@ -2,7 +2,9 @@
     return {
         events: {
             selectPost: "SelectPost",
-            selectTag: "SelectTag",
+            selectTag: "" +
+                "SelectTag" +
+                "",
             selectUser: "SelectUser",
             changeMenu: "ChangeMenu",
             searchPost: "SearchPost"
