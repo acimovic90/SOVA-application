@@ -21,7 +21,7 @@ namespace DomainModels.Models
         [Column("userlocation")]
         public string Location { get; set; }
         [Column("userage")]
-        public int ?Age { get; set; }
+        public int? Age { get; set; }
 
         [NotMapped]
         public List<Post> Posts { get; set; }
