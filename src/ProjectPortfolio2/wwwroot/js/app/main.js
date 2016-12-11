@@ -29,6 +29,11 @@
             viewModel: { require: 'app/components/post/postList' },
             template: { require: 'text!app/components/post/postListView.html' }
         });
+
+        ko.components.register("word-cloud", {
+            viewModel: { require: 'app/components/wordCloud/wordCloud' },
+            template: { require: 'text!app/components/wordCloud/wordCloudView.html' }
+        });
         ko.components.register("search-tag", {
             viewModel: { require: 'app/components/post/postList' },
             template: { require: 'text!app/components/post/postListView.html' }

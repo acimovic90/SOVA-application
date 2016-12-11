@@ -2,9 +2,8 @@
     return function () {
         var menuItems = [
             { title: config.menuItems.posts, component: 'post-list' }, //Is specified in main.js
-            { title: config.menuItems.users, component: 'user-list' }
-            //,
-            //{ title: config.menuItems.singlePost, component: 'singlePost' }
+            { title: config.menuItems.users, component: 'user-list' },
+            { title: config.menuItems.wordCloud, component: 'word-cloud' }
         ];
         var currentComponent = ko.observable();
         var currentParams = ko.observable();

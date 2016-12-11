@@ -9,7 +9,8 @@
         },
         menuItems: {
             posts: "Posts",
-            users: "Users"
+            users: "Users",
+            wordCloud: "WordCloud"
         }
     };
 });
