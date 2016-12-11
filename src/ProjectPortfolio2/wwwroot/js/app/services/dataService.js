@@ -7,9 +7,14 @@
             callback(data);
         });
     }
-    var getPostsBySearch = function (words, callback) {
-        debugger;
+    var getPostsBySearch = function (words, callback) {      
         var url = "api/posts?searchfor=" + words;
+        $.getJSON(url, function (data) {
+            callback(data);
+        });
+    }
+    var getWordCloudWords = function (words, callback) {
+        var url = "api/posts/wordcloud?searchfor=" + words;
         $.getJSON(url, function (data) {
             callback(data);
         });
@@ -39,6 +44,7 @@
     return {
         getPosts,
         getPostsBySearch,
+        getWordCloudWords,
         getSinglePost,
         getSingleUser,
         getUsers

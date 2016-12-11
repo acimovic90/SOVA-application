@@ -8,7 +8,7 @@
             "text": "lib/requirejs-text/text",
             "tether": "lib/tether/dist/js/tether.min",
             "bootstrap": "lib/bootstrap/dist/js/bootstrap.min",
-            "jqcloud2": "lib/jqcloud2/dist/jqcloud.min.js",
+            "jqcloud2": "lib/jqcloud2/dist/jqcloud.min",
 
             "dataservice": "app/services/dataService",
             "postman": "app/services/postman",
@@ -65,7 +65,7 @@
         window.Tether = Tether;
     });
         
-    require(['knockout', 'bootstrap'], function (ko) {
+    require(['knockout', 'bootstrap', 'jqcloud2'], function (ko) {
         ko.applyBindings();
     });
 

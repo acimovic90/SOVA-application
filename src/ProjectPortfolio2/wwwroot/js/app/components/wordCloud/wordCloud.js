@@ -1,20 +1,29 @@
 ﻿define(['knockout', 'dataservice', 'postman', 'config'], function (ko, dataService, postman, config) {
     return function (params) {
-        var words = ko.observableArray([]);
+        var words = ko.observable();
+        var cloudWords = ko.observableArray([]);
+        var cloudData = [];
 
-        //var selectPost = function (post) { //Indside postListView.html
-        //    dataService.getSinglePost(post.id, function (data) {
-        //        postman.publish(config.events.selectPost, { post: data });
-        //    });
-        //}
+        var search = function () {
+            var searchString = words();
+            dataService.getWordCloudWords(searchString, function (data) {
+                cloudWords(data);
+                debugger;
 
-        //debugger;
+                for (var i = 0; i < data.length; i++) {
+                    cloudData.push({ text: data[i].word, weight: data[i].count });
+                }
+                $('#keywords').jQCloud(cloudData);
+                $('#keywords').text('tetetetetet');
+            });
+        }
 
-
+        
 
         return {
-            //selectPost
-            
+            cloudWords,
+            words,
+            search            
         };
     };
 });

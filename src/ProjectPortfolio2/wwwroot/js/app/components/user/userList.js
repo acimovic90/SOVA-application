@@ -8,8 +8,6 @@
             });
         }
 
-        console.log(dataService);
-
         dataService.getUsers(function (data) {
             users(data.users);
         });
