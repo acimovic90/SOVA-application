@@ -30,6 +30,9 @@ button {
 .singleUserPostsTable{
     text-align: left;
 }
+.searchForPostInput {
+    min-width: 230px;
+}
 /*#keywords {
     width: 100%;
 }*/

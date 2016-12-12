@@ -21,10 +21,16 @@
                 </li>
             </ul>
             <div id="custom-search-input">
-                <div class="input-group col-md-4 form-inline">       
-                    <!--<input type="text" class="search-query form-control" placeholder="Search" data-bind="value: searchQuery, event: {keypress: onEnter}" autocomplete="off"/>-->
-                    <input class="form-control" placeholder="Search for posts" data-bind="textInput: searchQuery" />
-                    <button data-bind="click: search">Search</button>
+                <div class="input-group col-sm-4">
+
+                    <div class="input-group">
+                        <input class="form-control searchForPostInput" placeholder="Search for posts" data-bind="textInput: searchQuery" />
+
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" data-bind="click: search">Search</button>
+
+                        </span>
+                    </div>
 
                 </div>
             </div>
