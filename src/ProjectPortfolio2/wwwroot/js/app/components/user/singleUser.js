@@ -2,14 +2,12 @@
     function (ko, dataService, postman, config) {
         return function (params) {
             var user = ko.observable(params.user);
-
-            
             self.selectPost = function (post) {
                 dataService.getSinglePost(post.id, function (data) {
                     postman.publish(config.events.selectPost, { post: data });
                 });
             }
-          
+
             var showUsers = function () {
                 postman.publish(
                     config.events.changeMenu,
@@ -17,13 +15,15 @@
             };
 
             var saveUser = function () {
-                // save data on backend
-                // ko.toJS extract a js object from obervables 
-                // see http://knockoutjs.com/documentation/json-data.html
                 dataService.saveUser(ko.toJS(user));
-                // return to person list
                 showUsers();
-                // notify user
+
+            };
+
+            var deleteUser = function () {
+                dataService.deleteUser(ko.toJS(user));
+                showUsers();
+
             };
 
 
@@ -31,7 +31,8 @@
                 user,
                 selectPost,
                 showUsers,
-                saveUser
+                saveUser,
+                deleteUser
             };
         };
     });

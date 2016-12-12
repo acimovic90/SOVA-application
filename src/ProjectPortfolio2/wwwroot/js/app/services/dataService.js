@@ -35,6 +35,7 @@
         });
     }
 
+
     var getUsers = function (callback) {
         var url = "api/users";
         $.getJSON(url, function (data) {
@@ -50,6 +51,16 @@
         });
        
     };
+ 
+    var deleteUser = function (getSingleUser) {
+        $.ajax({
+            type: 'DELETE',
+            url: getSingleUser.url,
+            contentType: "application/json",
+            data: JSON.stringify(getSingleUser) // rember that data should be a JSON string
+        });
+
+    };
    
 
     return {
@@ -59,6 +70,7 @@
         getSinglePost,
         getSingleUser,
         getUsers,
-        saveUser
+        saveUser,
+        deleteUser
     };
 });
