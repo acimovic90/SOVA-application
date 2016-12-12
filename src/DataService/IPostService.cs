@@ -21,5 +21,6 @@ namespace DataService
         IList<RelatedPost> GetRelatedPosts(int postId);
         IList<Post> GetPostBySearch(int page, int pageSize, string searchFor);
         IList<CloudTag> GetWordCloudList(int page, int pageSize, string cloudType, string searchFor);
+        int? answersCount(int postId);
     }
 }
