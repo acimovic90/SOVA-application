@@ -111,11 +111,22 @@
                             </div>
                         </section>
                     </div>
+                    
                 </div>
             </div>
         </div>
     </div>
+    <div class="media-body">
+        <div data-bind="html: body"></div>
+        <section class="relatedPostsSection" data-bind="foreach: relatedPosts">
+            <div class="relatedposts">
+                <span data-bind="text: score"></span>
+                <span data-bind="text: title"></span>
+            </div>
+        </section>
+           
 
+    </div>
 </div>
 
 

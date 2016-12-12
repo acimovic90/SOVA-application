@@ -79,6 +79,7 @@ namespace ProjectPortfolio2.Controllers
             return Ok(UserModelFactory.Map(user, Url));
         }
 
+ 
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] UserViewModel model)
         {
@@ -92,7 +93,7 @@ namespace ProjectPortfolio2.Controllers
 
             return Ok();
         }
-
+    
         [HttpPut("delete/{id}")] //Just added
         public IActionResult PutDelete(int id, [FromBody] UserViewModel model)
         {

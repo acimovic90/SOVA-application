@@ -5,7 +5,7 @@
             selectTag: "SelectTag",
             selectUser: "SelectUser",
             saveUser: "SaveUser",
-            updateDeleteUser: "updateDeleteUser",
+            updateDeleteUser: "UpdateDeleteUser",
             //deleteUser:"DeleteUser",    
             changeMenu: "ChangeMenu",
             searchPost: "SearchPost",
