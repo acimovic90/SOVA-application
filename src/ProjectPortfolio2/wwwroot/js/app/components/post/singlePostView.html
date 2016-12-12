@@ -1,21 +1,7 @@
 ﻿<div class="col-lg-12" data-bind="with: post">
     
     <div class="row">
-        <div class="relatedpost__media col-lg-2">
-            <div class="media">
-                <div class="media-body">
-                    Linked :
-                    <section class="relatedPostsSection" data-bind="foreach: relatedPosts">
-                        <div class="relatedposts">
-
-                            <span class="label label-warning" data-bind="text: score"></span>
-                            <span data-bind="text: title"></span>
-                        </div>
-                    </section>
-
-                </div>
-            </div>
-        </div>
+       
         <div class="col-lg-10">
             <div class="well well-sm">
                 <div class="media">
@@ -57,6 +43,21 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+        <div class="relatedpost__media col-lg-2">
+            <div class="media">
+                <div class="media-body">
+                    Linked :
+                    <section class="relatedPostsSection" data-bind="foreach: relatedPosts">
+                        <div class="relatedposts">
+
+                            <span class="label label-warning" data-bind="text: score"></span>
+                            <span data-bind="text: title"></span>
+                        </div>
+                    </section>
+
+                </div>
             </div>
         </div>
     </div>
