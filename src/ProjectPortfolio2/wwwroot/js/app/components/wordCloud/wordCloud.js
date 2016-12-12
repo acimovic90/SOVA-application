@@ -5,19 +5,24 @@
         var cloudData = [];
 
         var search = function () {
-            
             var searchString = words();
             dataService.getWordCloudWords(searchString, function (data) {
                 cloudWords(data);
-
+                debugger;
                 for (var i = 0; i < data.length; i++) {
-                    cloudData.push({ text: data[i].word, weight: data[i].count });
+                    cloudData.push({
+                        text: data[i].word,
+                        weight: data[i].count
+                    });
                 }
 
                 $('#keywords').jQCloud(cloudData, {
                     autoResize: true,
-                height: 350
-            });
+                    height: 350
+                });
+                if (cloudData !== []) {
+                    $('#keywords').jQCloud('update', cloudData);
+                }
             });
         }
 
