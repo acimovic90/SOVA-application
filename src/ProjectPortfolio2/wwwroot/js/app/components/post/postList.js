@@ -8,7 +8,7 @@
             });
         }
 
-        if (params !== undefined && params.data.posts.length !== 0) {
+        if (params !== undefined && params.data !== undefined && params.data.posts.length !== 0) {
             posts(params.data.posts);
         } else {
             dataService.getPosts(function (params) {
