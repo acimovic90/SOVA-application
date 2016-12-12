@@ -5,7 +5,8 @@
             selectTag: "SelectTag",
             selectUser: "SelectUser",
             saveUser: "SaveUser",
-            deleteUser:"DeleteUser",    
+            updateDeleteUser: "updateDeleteUser",
+            //deleteUser:"DeleteUser",    
             changeMenu: "ChangeMenu",
             searchPost: "SearchPost",
             wordCloudSearch: "WordCloudSearch"

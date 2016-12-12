@@ -20,11 +20,16 @@
 
             };
 
-            var deleteUser = function () {
-                dataService.deleteUser(ko.toJS(user));
+            var updateDeleteUser = function () {
+                dataService.updateDeleteUser(ko.toJS(user));
                 showUsers();
 
-            };
+        };
+            //var deleteUser = function () {
+            //    dataService.deleteUser(ko.toJS(user));
+            //    showUsers();
+
+            //};
 
 
             return {
@@ -32,7 +37,8 @@
                 selectPost,
                 showUsers,
                 saveUser,
-                deleteUser
+                updateDeleteUser
+                //deleteUser
             };
         };
     });

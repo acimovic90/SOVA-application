@@ -14,6 +14,7 @@ namespace ProjectPortfolio2.ViewModels
         public int? Age { get; set; }
         public DateTime ?CreationDate { get; set; }
         public string Location { get; set; }
+        public int Active { get; set; } //Just added
         public List<PostListViewModel> Posts { get; set; }
         public List<PostListViewModel> FavouritePosts { get; set; }
     }

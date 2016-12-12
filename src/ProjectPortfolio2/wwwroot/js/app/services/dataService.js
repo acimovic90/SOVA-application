@@ -42,6 +42,14 @@
             callback(data);
         });
     }
+
+    var deleteUser = function (callback) {
+        var url = "api/users/delete";
+        $.getJSON(url, function (data) {
+            callback(data);
+        });
+    }
+
     var saveUser = function (getUsers) {
         $.ajax({
             type: 'PUT',
@@ -51,16 +59,28 @@
         });
        
     };
- 
-    var deleteUser = function (getSingleUser) {
+
+    var updateDeleteUser = function (deleteUser) {
         $.ajax({
-            type: 'DELETE',
-            url: getSingleUser.url,
+            type: 'PUT',
+            url: deleteUser.url,
             contentType: "application/json",
-            data: JSON.stringify(getSingleUser) // rember that data should be a JSON string
+            data: JSON.stringify(deleteUser) // rember that data should be a JSON string
         });
 
     };
+
+
+ 
+    //var deleteUser = function (getSingleUser) {
+    //    $.ajax({
+    //        type: 'DELETE',
+    //        url: getSingleUser.url,
+    //        contentType: "application/json",
+    //        data: JSON.stringify(getSingleUser) // rember that data should be a JSON string
+    //    });
+
+    //};
    
 
     return {
@@ -71,6 +91,7 @@
         getSingleUser,
         getUsers,
         saveUser,
+        updateDeleteUser,
         deleteUser
     };
 });

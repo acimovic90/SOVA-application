@@ -20,7 +20,8 @@ namespace ProjectPortfolio2.ViewModels
                 CreationDate = user.CreationDate,
                 Location = user.Location,
                 Posts = ListOfPostsModelFactory.Map(user.Posts, url).Posts,
-                FavouritePosts = ListOfPostsModelFactory.Map(user.FavouritePosts, url).Posts
+                FavouritePosts = ListOfPostsModelFactory.Map(user.FavouritePosts, url).Posts,
+                Active = user.Active //just added
             };
         }
 
