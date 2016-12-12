@@ -39,14 +39,20 @@ button {
 }
 
 .card {
-  overflow: hidden;
-  position: relative;
-  border: 1px solid #CCC;
-  border-radius: 8px;
-  text-align: center;
-  padding: 0;
-  background-color: #284c79;
-  color: rgb(136, 172, 217);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    text-align: center;
+    padding: 0;
+    background-color: #828282;
+    color: rgb(255, 255, 255);
+}
+.singleUserPostsTable tbody {
+    cursor: pointer;
+}
+.singleUserPostsTable tbody tr:hover {
+    background-color: #ccc; 
 }
 
 .card .header-bg {
