@@ -1,7 +1,22 @@
 ﻿<div class="col-lg-12" data-bind="with: post">
-
+    
     <div class="row">
-        <div class="col-lg-12">
+        <div class="relatedpost__media col-lg-2">
+            <div class="media">
+                <div class="media-body">
+                    Linked :
+                    <section class="relatedPostsSection" data-bind="foreach: relatedPosts">
+                        <div class="relatedposts">
+
+                            <span class="label label-warning" data-bind="text: score"></span>
+                            <span data-bind="text: title"></span>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10">
             <div class="well well-sm">
                 <div class="media">
                     <div class="pull-left">
@@ -25,7 +40,7 @@
                     </div>
                     <div class="media-body">
                         <h4 data-bind="text: title"></h4>
-                        
+
                         <div data-bind="html: body"></div>
                         <br/>
 
@@ -47,7 +62,7 @@
     </div>
 
     <div class="row" data-bind="with: acceptedAnswer">
-        <div class="col-lg-12">
+        <div class="col-lg-10">
             <div class="well well-sm acceptedAnswer">
                 <div class="media">
                     <div class="pull-left">
@@ -82,7 +97,7 @@
     </div>
     <div data-bind="with: answers"></div>
     <div class="row" data-bind="foreach: answers">
-        <div class="col-lg-12">
+        <div class="col-lg-10">
             <div class="well well-sm answer">
                 <div class="media">
                     <div class="pull-left">
@@ -103,7 +118,7 @@
                     </div>
                     <div class="media-body">
                         <div data-bind="html: body"></div>
-                        
+
                         <section class="commentSection" data-bind="foreach: comment">
                             <div class="comment">
                                 <span data-bind="text: text"></span>
@@ -111,23 +126,12 @@
                             </div>
                         </section>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </div>
-    <div class="media-body">
-        <div data-bind="html: body"></div>
-        <section class="relatedPostsSection" data-bind="foreach: relatedPosts">
-            <div class="relatedposts">
-                <span data-bind="text: score"></span>
-                <span data-bind="text: title"></span>
-            </div>
-        </section>
-           
-
-    </div>
+    
 </div>
-
 
 <!--<a href="#" data-bind="click: goToPosts">Back to Posts</a>-->
