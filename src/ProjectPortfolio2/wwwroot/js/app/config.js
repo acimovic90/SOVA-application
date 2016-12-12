@@ -4,7 +4,6 @@
             selectPost: "SelectPost",
             selectTag: "SelectTag",
             selectUser: "SelectUser",
-            createUser: "CreateUser",
             saveUser: "SaveUser",
             deleteUser:"DeleteUser",    
             changeMenu: "ChangeMenu",
