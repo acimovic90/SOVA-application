@@ -1,6 +1,10 @@
-﻿define(['knockout', 'dataservice', 'postman', 'config'],
-    function (ko, dataService, postman, config) {
+﻿define(['knockout', 'dataservice', 'jquery', 'postman', 'config'],
+    function (ko, dataService, $, postman, config) {
         return function (params) {
+            $("#update__profile").hide();
+            $(".update__profile__button").click(function (e) {
+                $("#update__profile").show();
+            });
             var user = ko.observable(params.user);
             self.selectPost = function (post) {
                 dataService.getSinglePost(post.id, function (data) {
@@ -13,7 +17,7 @@
                     config.events.changeMenu,
                     { title: config.menuItems.users, params });
             };
-
+ 
             var saveUser = function () {
                 dataService.saveUser(ko.toJS(user));
                 showUsers();

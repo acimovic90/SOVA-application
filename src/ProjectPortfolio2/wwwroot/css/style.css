@@ -83,4 +83,13 @@ button {
   border-radius: 50%;
   border: 5px solid rgba(0,0,30,0.8);
 }
+
+.form__update__profile {
+    margin-top: 30px;
+}
+
+#container__posts {
+    margin-top: 30px;
+    
+}
 /* ________ profile view END____________*/

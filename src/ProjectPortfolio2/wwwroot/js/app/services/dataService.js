@@ -42,6 +42,16 @@
             callback(data);
         });
     }
+    var createUser = function (user) {
+        $.ajax({
+            type: 'POST',
+            url: "api/users",
+            contentType: "application/json",
+            data: JSON.stringify(user)
+        });
+
+    };
+
     var saveUser = function (getUsers) {
         $.ajax({
             type: 'PUT',
@@ -70,6 +80,7 @@
         getSinglePost,
         getSingleUser,
         getUsers,
+        createUser,
         saveUser,
         deleteUser
     };
