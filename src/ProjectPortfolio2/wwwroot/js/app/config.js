@@ -4,6 +4,7 @@
             selectPost: "SelectPost",
             selectTag: "SelectTag",
             selectUser: "SelectUser",
+            saveUser: "SaveUser",
             changeMenu: "ChangeMenu",
             searchPost: "SearchPost",
             wordCloudSearch: "WordCloudSearch"

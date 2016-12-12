@@ -4,6 +4,7 @@
         var total = ko.observable();
         var prevUrl = ko.observable();
         var nextUrl = ko.observable();
+        debugger;
         var curPage = ko.observable(params ? params.url : undefined);
 
         var selectPost = function (post) { //Indside postListView.html
@@ -20,6 +21,7 @@
             });
         }
 
+ 
         var canPrev = function () {
             return prevUrl();
         };

@@ -35,13 +35,22 @@
         });
     }
 
-
     var getUsers = function (callback) {
         var url = "api/users";
         $.getJSON(url, function (data) {
             callback(data);
         });
     }
+    var saveUser = function (getUsers) {
+        $.ajax({
+            type: 'PUT',
+            url: getUsers.url,
+            contentType: "application/json",
+            data: JSON.stringify(getUsers) // rember that data should be a JSON string
+        });
+       
+    };
+   
 
     return {
         getPosts,
@@ -49,6 +58,7 @@
         getWordCloudWords,
         getSinglePost,
         getSingleUser,
-        getUsers
+        getUsers,
+        saveUser
     };
 });

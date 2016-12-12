@@ -54,7 +54,6 @@
             template: { require: 'text!app/components/user/singleUserView.html' }
         });
    
-
         ko.components.register("user-list", {
             viewModel: { require: 'app/components/user/userList' },
             template: { require: 'text!app/components/user/userListView.html' }
