@@ -16,13 +16,22 @@
                             <span class ="label label-success" data-bind="if: acceptedAnswerId">Accepted</span>                  
                             <span class="label label-info" data-bind="text: answersCount"></span>
                             <span class="label label-warning" data-bind="text: score"></span>
-
-
                         </p>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="col-md-12">
+    <button data-bind="enable: canPrev(), click: showPrev" class="btn btn-sm col-md-1">
+        <
+    </button>
+    
+    <div class="col-md-10"></div>
+    
+    <button data-bind="enable: canNext(), click: showNext" class="btn btn-sm col-md-1">
+        >
+    </button>
 </div>

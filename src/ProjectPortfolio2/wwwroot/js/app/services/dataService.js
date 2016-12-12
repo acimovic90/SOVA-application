@@ -1,8 +1,10 @@
 ﻿define(['jquery'], function ($) {
+    var postsUrl = "api/posts";
 
-
-    var getPosts = function (callback) {
-        var url = "api/posts";
+    var getPosts = function (url, callback) {
+        if (url === undefined) {
+            url = postsUrl;
+        }
         $.getJSON(url, function (data) {
             callback(data);
         });
