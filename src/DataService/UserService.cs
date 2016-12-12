@@ -22,7 +22,7 @@ namespace DataService
         {
             using (var db = new SovaContext())
             {
-                return db.Users
+                return db.Users.Where(u => u.Active != 0) //just added
                     .Skip(page * pageSize)
                     .Take(pageSize)
                     .ToList();
