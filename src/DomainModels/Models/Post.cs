@@ -12,6 +12,8 @@ namespace DomainModels.Models
         public int PostId { get; set; }
         [Column("posttypeid")]
         public int PostTypeId { get; set; }
+        [Column("parentid")]
+        public int? ParentId { get; set; }
         [Column("acceptedanswerid")]
         public int? AcceptedAnswerId { get; set; }
         [Column("creationdate")]

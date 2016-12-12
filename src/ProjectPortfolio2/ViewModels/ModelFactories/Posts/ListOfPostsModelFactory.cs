@@ -28,6 +28,7 @@ namespace ProjectPortfolio2.ViewModels
                     CreationDate = post.CreationDate,
                     Score = post.Score,
                     AcceptedAnswerId = post.AcceptedAnswerId,
+                    AnswersCount = _uPostService.answersCount(post.PostId),
                     Url = url.Link(Config.PostRoute, new { id = post.PostId }),
                 };
                 try

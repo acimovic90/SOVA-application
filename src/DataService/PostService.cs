@@ -276,5 +276,24 @@ namespace DataService
                 
             }
         }
+
+        public int? answersCount(int postId)
+        {
+          
+                using (var db = new SovaContext())
+                {
+
+                    var postCount = (from p in db.Posts
+                                     where p.ParentId == postId
+                                     select p).Count();
+
+
+                    return postCount;
+                }
+                //var result = db.Posts.FromSql("call getCountOfAnswers({0})", postId).FirstOrDefault();
+
+                //return results[0];
+                   
+        }
     }
 }
