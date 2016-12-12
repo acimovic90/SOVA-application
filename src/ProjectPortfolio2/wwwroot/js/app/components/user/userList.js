@@ -1,5 +1,9 @@
-﻿define(['knockout', 'dataservice', 'postman', 'config'], function (ko, dataService,postman, config) {
+﻿define(['knockout', 'dataservice', 'jquery','postman', 'config'], function (ko, dataService,$,postman, config) {
     return function () {
+        $("#new__user").hide();
+        $(".new__user__button").click(function () {
+            $("#new__user").show();
+        });
         var users = ko.observableArray([]);
 
         var selectUser = function (user) {

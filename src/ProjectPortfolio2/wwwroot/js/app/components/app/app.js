@@ -1,5 +1,7 @@
 ﻿define(['knockout', 'dataservice', 'config', 'postman'], function (ko, dataService, config, postman) {
     return function () {
+     
+
         var menuItems = [
             { title: config.menuItems.posts, component: 'post-list' }, //Is specified in main.js
             { title: config.menuItems.users, component: 'user-list' },
