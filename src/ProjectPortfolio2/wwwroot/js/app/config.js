@@ -6,6 +6,7 @@
             selectUser: "SelectUser",
             saveUser: "SaveUser",
             updateDeleteUser: "UpdateDeleteUser",
+            createUser: "CreateUser",
             //deleteUser:"DeleteUser",    
             changeMenu: "ChangeMenu",
             searchPost: "SearchPost",

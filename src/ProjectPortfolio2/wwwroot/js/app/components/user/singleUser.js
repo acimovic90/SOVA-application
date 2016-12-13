@@ -2,6 +2,7 @@
     function (ko, dataService, postman, config) {
         return function (params) {
             var user = ko.observable(params.user);
+
             self.selectPost = function (post) {
                 dataService.getSinglePost(post.id, function (data) {
                     postman.publish(config.events.selectPost, { post: data });
@@ -23,8 +24,8 @@
             var updateDeleteUser = function () {
                 dataService.updateDeleteUser(ko.toJS(user));
                 showUsers();
+            };
 
-        };
             //var deleteUser = function () {
             //    dataService.deleteUser(ko.toJS(user));
             //    showUsers();

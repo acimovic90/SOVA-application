@@ -39,6 +39,10 @@
             currentParams(params);
             currentComponent("single-user");
         });
+        postman.subscribe(config.events.createUser, function (params) {
+            currentParams(params);
+            currentComponent("create-user");
+        });
         postman.subscribe(config.events.selectTag, function (params) {
             currentParams(params);
             currentComponent("search-tag");
