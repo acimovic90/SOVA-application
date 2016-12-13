@@ -5,7 +5,7 @@
         var location = ko.observable(); 
 
         var createUser = function () {
-            dataService.createUser({ displayname: displayname(), age: age(), location: location() }, function () {
+            dataService.createUser({ Displayname: displayname(), Age: age(), Location: location() }, function () {
                 alert();
             });
 

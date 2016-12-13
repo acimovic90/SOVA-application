@@ -40,12 +40,8 @@
             type: 'POST',
             url: url,
             contentType: "application/json",
-            data: JSON.stringify({
-                "Displayname": "kris",
-                "Age": 14,
-                "Location": "Denmark"
-            })
-        });
+            data: JSON.stringify(user)
+        }).done(callback);
     }
 
 
