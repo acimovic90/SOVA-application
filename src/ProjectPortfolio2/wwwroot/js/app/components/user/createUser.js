@@ -5,9 +5,11 @@
         var location = ko.observable(); 
 
         var createUser = function () {
-            
+            dataService.createUser({ displayname: displayname(), age: age(), location: location() }, function () {
+                alert();
+            });
 
-            postman.publish(config.events.showUsers);
+            //postman.publish(config.events.showUsers);
         }
 
         return {

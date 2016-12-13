@@ -34,6 +34,19 @@
             callback(data);
         });
     }
+    var createUser = function (user, callback) {
+        var url = "api/users";
+        $.ajax({
+            type: 'POST',
+            url: url,
+            contentType: "application/json",
+            data: JSON.stringify({
+                "Displayname": "kris",
+                "Age": 14,
+                "Location": "Denmark"
+            })
+        });
+    }
 
 
     var getUsers = function (callback) {
@@ -89,6 +102,7 @@
         getWordCloudWords,
         getSinglePost,
         getSingleUser,
+        createUser,
         getUsers,
         saveUser,
         updateDeleteUser,
