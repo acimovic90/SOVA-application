@@ -53,10 +53,15 @@
             viewModel: { require: 'app/components/user/singleUser' },
             template: { require: 'text!app/components/user/singleUserView.html' }
         });
-   
+
         ko.components.register("user-list", {
             viewModel: { require: 'app/components/user/userList' },
             template: { require: 'text!app/components/user/userListView.html' }
+        });
+
+        ko.components.register("create-user", {
+            viewModel: { require: 'app/components/user/createUser' },
+            template: { require: 'text!app/components/user/createUserView.html' }
         });
 
     });
