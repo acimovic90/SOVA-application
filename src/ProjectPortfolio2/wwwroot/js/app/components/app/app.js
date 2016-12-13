@@ -43,6 +43,11 @@
             currentParams(params);
             currentComponent("create-user");
         });
+
+        postman.subscribe(config.events.showUsers, function (params) {
+            currentParams(params);
+            currentComponent("user-list");
+        });
         postman.subscribe(config.events.selectTag, function (params) {
             currentParams(params);
             currentComponent("search-tag");

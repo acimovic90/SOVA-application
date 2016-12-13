@@ -1,28 +1,20 @@
 ﻿define(['knockout', 'dataservice', 'jquery','postman', 'config'], function (ko, dataService,$,postman, config) {
     return function () {
-        $("#new__user").hide();
-        $(".new__user__button").click(function (e) {
-            $("#new__user").show();
-        });
+        var displayname = ko.observable();
+        var age = ko.observable();
+        var location = ko.observable(); 
 
-        $(".button__success").click(function (e) {
-            $("#new__user").hide();
-        });
-        var users = ko.observableArray([]);
+        var createUser = function () {
+            
 
-        var selectUser = function (user) {
-            dataService.getSingleUser(user.id, function (data) {
-                postman.publish(config.events.selectUser, { user: data });
-            });
+            postman.publish(config.events.showUsers);
         }
 
-        dataService.getUsers(function (data) {
-            users(data.users);
-        });
-
         return {
-            users,
-            selectUser
+            displayname,
+            age,
+            location,
+            createUser
         };
     };
 });
