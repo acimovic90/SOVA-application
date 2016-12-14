@@ -29,10 +29,18 @@
         });
     }
     var getSingleUser = function (id, callback) {
-        var url = "api/users/"+id;
-        $.getJSON(url, function (data) {
-            callback(data);
-        });
+        var url = "api/users/" + id;
+        $.ajax({
+            type: 'GET',
+            url: url,
+            contentType: "application/json"
+        }).done(callback);
+
+
+        //$.getJSON(url, function (data) {
+        //    console.log(data);
+        //    callback(data);
+        //});
     }
     var createUser = function (user, callback) {
         var url = "api/users";
@@ -59,13 +67,13 @@
         });
     }
 
-    var saveUser = function (getUsers) {
+    var saveUser = function (getUsers, callback) {
         $.ajax({
             type: 'PUT',
             url: getUsers.url,
             contentType: "application/json",
             data: JSON.stringify(getUsers) // rember that data should be a JSON string
-        });
+        }).done(callback);
        
     };
 

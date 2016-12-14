@@ -16,9 +16,9 @@
             };
 
             var saveUser = function () {
-                dataService.saveUser(ko.toJS(user));
-                showUsers();
-
+                dataService.saveUser(ko.toJS(user), function () {
+                    alert("user saved");
+                });
             };
 
             var updateDeleteUser = function () {
