@@ -95,20 +95,6 @@ namespace ProjectPortfolio2.Controllers
             return Ok();
         }
 
-        [HttpPut("delete/{id}")] //Just added
-        public IActionResult PutDelete(int id, [FromBody] UserViewModel model)
-        {
-            var user = UserModelFactory.Map(model);
-            user.Id = id;
-
-            if (!_userService.UpdateDeleteUser(user))
-            {
-                return NotFound();
-            }
-
-            return Ok();
-        }
-
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

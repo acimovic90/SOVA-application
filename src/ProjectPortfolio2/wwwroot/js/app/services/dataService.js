@@ -56,14 +56,13 @@
         }).done(callback);
     }
 
-
- 
-
-    var deleteUser = function (callback) {
-        var url = "api/users/delete";
-        $.getJSON(url, function (data) {
-            callback(data);
-        });
+    var deleteUser = function (id, callback) {
+        $.ajax({
+            type: "DELETE",
+            url: "api/users/" + id,
+            contentType: "application/json",
+            data: JSON.stringify(getUsers) // rember that data should be a JSON string
+        }).done(callback);
     }
 
     var saveUser = function (getUsers, callback) {
@@ -73,21 +72,8 @@
             contentType: "application/json",
             data: JSON.stringify(getUsers) // rember that data should be a JSON string
         }).done(callback);
-       
     };
 
-    var updateDeleteUser = function (deleteUser) {
-        $.ajax({
-            type: 'PUT',
-            url: deleteUser.url,
-            contentType: "application/json",
-            data: JSON.stringify(deleteUser) // rember that data should be a JSON string
-        });
-
-    };
-
-
- 
     //var deleteUser = function (getSingleUser) {
     //    $.ajax({
     //        type: 'DELETE',
@@ -108,7 +94,6 @@
         createUser,
         getUsers,
         saveUser,
-        updateDeleteUser,
         deleteUser
     };
 });

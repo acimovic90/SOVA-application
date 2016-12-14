@@ -9,6 +9,7 @@ namespace ProjectPortfolio2.ViewModels
 {
     public class UserViewModel
     {
+        public int Id { get; set; }
         public string Url { get; set; }
         public string Displayname { get; set; }
         public int? Age { get; set; }

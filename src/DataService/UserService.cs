@@ -104,23 +104,6 @@ namespace DataService
             }
         }
 
-        public bool UpdateDeleteUser(User user) //Just added
-        {
-            using (var db = new SovaContext())
-            {
-                try
-                {
-                    db.Attach(user);
-                    db.Entry(user).State = EntityState.Modified;
-                    return db.SaveChanges() > 0;
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    return false;
-                }
-            }
-        }
-
         public bool DeleteUser(int id)
         {
             using (var db = new SovaContext())
@@ -132,7 +115,7 @@ namespace DataService
                     return false;
                 }
 
-                db.Users.Remove(user);
+                user.Active = 0;
 
                 return db.SaveChanges() > 0;
             }

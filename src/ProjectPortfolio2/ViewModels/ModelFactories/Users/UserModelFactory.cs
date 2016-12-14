@@ -14,6 +14,7 @@ namespace ProjectPortfolio2.ViewModels
         {
             return new UserViewModel
             {
+                Id = user.Id,
                 Url = url.Link(Config.UserRoute, new { id = user.Id }),
                 Displayname = user.DisplayName,
                 Age = user.Age.Value,
@@ -29,6 +30,7 @@ namespace ProjectPortfolio2.ViewModels
         {
             return new User
             {
+                Id = model.Id,
                 DisplayName = model.Displayname,
                 Age = model.Age,
                 Location = model.Location,

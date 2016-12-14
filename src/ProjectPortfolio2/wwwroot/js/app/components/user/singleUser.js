@@ -22,25 +22,21 @@
                 });
             };
 
-            var updateDeleteUser = function () {
-                dataService.updateDeleteUser(ko.toJS(user));
-                showUsers();
+            var deleteUser = function () {
+                dataService.deleteUser(user().id, function () {
+                    $('#single-user-container').html('<div class="col-md-3"></div><div class="col-md-6 alert alert-success text-center">The user has been deleted</div>');
+                    setTimeout(function () {
+                        postman.publish(config.events.showUsers);
+                    }, 3000);
+                });
             };
-
-            //var deleteUser = function () {
-            //    dataService.deleteUser(ko.toJS(user));
-            //    showUsers();
-
-            //};
-
 
             return {
                 user,
                 selectPost,
                 showUsers,
                 saveUser,
-                updateDeleteUser
-                //deleteUser
+                deleteUser
             };
         };
     });
