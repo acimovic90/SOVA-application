@@ -76,9 +76,9 @@ namespace ProjectPortfolio2.Controllers
             var user = UserModelFactory.Map(model);
             user.CreationDate = DateTime.Now;
             _userService.AddUser(user);
-            return Ok(UserModelFactory.Map(user, Url));
+            var url = Url.Link(Config.UserRoute, new { id = user.Id });
+            return Ok(url);
         }
-
  
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] UserViewModel model)
