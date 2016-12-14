@@ -61,7 +61,7 @@
             type: "DELETE",
             url: "api/users/" + id,
             contentType: "application/json",
-            data: JSON.stringify(getUsers) // rember that data should be a JSON string
+            data: JSON.stringify(getUsers)
         }).done(callback);
     }
 
@@ -70,20 +70,9 @@
             type: 'PUT',
             url: getUsers.url,
             contentType: "application/json",
-            data: JSON.stringify(getUsers) // rember that data should be a JSON string
+            data: JSON.stringify(getUsers)
         }).done(callback);
     };
-
-    //var deleteUser = function (getSingleUser) {
-    //    $.ajax({
-    //        type: 'DELETE',
-    //        url: getSingleUser.url,
-    //        contentType: "application/json",
-    //        data: JSON.stringify(getSingleUser) // rember that data should be a JSON string
-    //    });
-
-    //};
-   
 
     return {
         getPosts,
