@@ -49,6 +49,16 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
+                                                <label for="location" class="col-sm-2 control-label">Location</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text"
+                                                           class="form-control"
+                                                           id="location"
+                                                           data-bind="textInput: location"
+                                                           placeholder="Location">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
                                                 <div class="col-sm-offset-2 col-sm-10">
                                                     <button type="submit"
                                                             class="btn btn-success"
@@ -57,7 +67,7 @@
                                                     </button>
                                                     <button type="submit"
                                                             class="btn btn-danger"
-                                                            data-bind="value: active = 0, click: $parent.updateDeleteUser">
+                                                            data-bind="click: $parent.updateDeleteUser">
                                                         Delete
                                                     </button>
                                                 </div>

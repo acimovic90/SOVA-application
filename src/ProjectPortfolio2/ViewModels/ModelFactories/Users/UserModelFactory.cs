@@ -31,7 +31,8 @@ namespace ProjectPortfolio2.ViewModels
             {
                 DisplayName = model.Displayname,
                 Age = model.Age,
-                Location = model.Location
+                Location = model.Location,
+                Active = model.Active
             };
         }
     }
