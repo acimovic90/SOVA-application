@@ -1,4 +1,7 @@
-﻿
+﻿.hidden {
+     display:none;
+}
+
 img.media-object {
     width: 45%;
     border-radius: 50px;

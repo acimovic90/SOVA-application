@@ -17,7 +17,8 @@
 
             var saveUser = function () {
                 dataService.saveUser(ko.toJS(user), function () {
-                    alert("user saved");
+                    $('#updated-user-message').removeClass("hidden");
+                    setTimeout(function () { $('#updated-user-message').addClass("hidden"); }, 3000);
                 });
             };
 
