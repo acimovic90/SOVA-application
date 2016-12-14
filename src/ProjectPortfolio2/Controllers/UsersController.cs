@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -77,9 +78,9 @@ namespace ProjectPortfolio2.Controllers
             user.CreationDate = DateTime.Now;
             _userService.AddUser(user);
             var url = Url.Link(Config.UserRoute, new { id = user.Id });
-            return Ok(url);
+            return Ok(new {displayName = user.DisplayName, url = url, id = user.Id });
         }
- 
+
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] UserViewModel model)
         {
@@ -93,7 +94,7 @@ namespace ProjectPortfolio2.Controllers
 
             return Ok();
         }
-    
+
         [HttpPut("delete/{id}")] //Just added
         public IActionResult PutDelete(int id, [FromBody] UserViewModel model)
         {

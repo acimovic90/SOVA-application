@@ -33,6 +33,9 @@ button {
 .searchForPostInput {
     min-width: 230px;
 }
+.viewProfileBtn {
+    border: 1px solid #eee;
+}
 /*#keywords {
     width: 100%;
 }*/
@@ -86,6 +89,3 @@ button {
 
 /* ________ profile view END____________*/
 
-.relatedpost__media {
-    
-}
