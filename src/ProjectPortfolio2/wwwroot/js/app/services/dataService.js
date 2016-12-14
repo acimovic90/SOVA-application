@@ -1,9 +1,19 @@
 ﻿define(['jquery'], function ($) {
     var postsUrl = "api/posts";
+    var usersUrl = "api/users";
+
 
     var getPosts = function (url, callback) {
         if (url === undefined) {
             url = postsUrl;
+        }
+        $.getJSON(url, function (data) {
+            callback(data);
+        });
+    }
+    var getUsers = function (url, callback) {
+        if (url === undefined) {
+            url = usersUrl;
         }
         $.getJSON(url, function (data) {
             callback(data);
@@ -35,12 +45,6 @@
             url: url,
             contentType: "application/json"
         }).done(callback);
-
-
-        //$.getJSON(url, function (data) {
-        //    console.log(data);
-        //    callback(data);
-        //});
     }
     var createUser = function (user, callback) {
         var url = "api/users";
@@ -53,12 +57,7 @@
     }
 
 
-    var getUsers = function (callback) {
-        var url = "api/users";
-        $.getJSON(url, function (data) {
-            callback(data);
-        });
-    }
+ 
 
     var deleteUser = function (callback) {
         var url = "api/users/delete";
