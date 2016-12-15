@@ -6,7 +6,9 @@
                     <a class="thumbnail pull-left" href="#">
 
                         <img data-bind="click: $parent.selectUser" class="media-object" src="../../../../images/Dummy-profile-picture.png">
-
+                        <div style="text-align: center" data-bind="if: user">
+                            <span data-bind="text: user.displayname"></span>
+                        </div>
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading" data-bind="text: title, click: $parent.selectPost"></h4>
