@@ -40,7 +40,6 @@
         }
 
         var setData = function (data) {
-            console.log(data.total);
             posts(data.posts);
             total(data.total);
             prevUrl(data.prev);
