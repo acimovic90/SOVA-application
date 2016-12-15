@@ -30,7 +30,7 @@
             return menu === selectedMenu();
         }
 
-        selectMenu(menuItems[0]);
+        goToHome();
 
         postman.subscribe(config.events.selectPost, function (params) {
             currentParams(params);
