@@ -5,6 +5,16 @@
         var location = ko.observable(); 
 
         var createUser = function () {
+            if (displayname() == undefined || displayname() == "" || age() == undefined || age() == "" || location() == undefined || location == "") {
+                $('.alertField')
+                    .html('<div class="alert alert-danger">' +
+                        '<strong>Ops!</strong> Please enter all required fields' +
+                        '</div>');
+                return false;
+            }
+
+            $('.alertField').html("");
+
             dataService.createUser({ Displayname: displayname(), Age: age(), Location: location() }, function (data) {             
                 $('.alertField')
                     .html('<div class="alert alert-success">' +
@@ -14,11 +24,13 @@
                         '</div>');
             });
         }
-         self.selectUser = function (id) {
+
+        self.selectUser = function (id) {
             dataService.getSingleUser(id, function (data) {
                 postman.publish(config.events.selectUser, { user: data });
             });
         }
+
         return {
             displayname,
             age,
