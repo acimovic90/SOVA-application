@@ -39,9 +39,9 @@ button {
 .viewProfileBtn {
     border: 1px solid #eee;
 }
-/*#keywords {
+#keywords {
     width: 100%;
-}*/
+}
 /* ________ profile view ____________*/
 .src-image {
   display: none;

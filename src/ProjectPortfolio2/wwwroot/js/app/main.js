@@ -19,7 +19,7 @@
         }
     });
 
-    require(['knockout'], function (ko) { //Knockout gets passed in the parameter
+    require(['knockout'], function (ko) { 
         ko.components.register("my-app", {
             viewModel: { require: 'app/components/app/app' },
             template: { require: 'text!app/components/app/appView.html' }
