@@ -27,7 +27,7 @@ namespace DataService
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("");
+            optionsBuilder.UseMySql("INSERT DATA HERE");
             base.OnConfiguring(optionsBuilder);
         }
         
