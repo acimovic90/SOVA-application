@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjectPortfolio2.Controllers
 {
-    public class BaseController : Controller
+    public class BaseController : Controller //
     {
         protected bool IsLastPage(int page, int pageSize, int total)
         {
